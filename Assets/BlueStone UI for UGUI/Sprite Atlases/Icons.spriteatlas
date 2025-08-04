@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Icons
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 4096
+      textureCompression: 0
+      filterMode: 2
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 4
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 515cdff58d866084c8da3d4a36ad17e7, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys: []
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f2b7a5733b3c4bb4887bf8fcaf0b331b, type: 3}
+  - {fileID: 21300000, guid: ca8a9128596f38c41bde6990def76667, type: 3}
+  - {fileID: 21300000, guid: d487f2dad0149e54dae25b06d65b3600, type: 3}
+  - {fileID: 21300000, guid: d7fbadbb44e6c364797e2aa8666b1b70, type: 3}
+  - {fileID: 21300000, guid: 2a31655c76fa7b14bb331f4d9d5a8d38, type: 3}
+  - {fileID: 21300000, guid: 2698476eeca1a574987bc7324c4103e6, type: 3}
+  - {fileID: 21300000, guid: 36dd3eb063ea67b4cb230115677330d9, type: 3}
+  - {fileID: 21300000, guid: 6099f1c49244fd844b29cab4c5836b8b, type: 3}
+  - {fileID: 21300000, guid: 8aa9f7ecf2f3a5247a7cc8e906449257, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Icon_Blinding_Light_256
+  - Icon_Pyro_Blast_256
+  - Icon_Spell_Book_256
+  - Icon_Leafs_256
+  - Icon_Fireball_256
+  - Icon_Death_Kiss_256
+  - Icon_Sword_128
+  - Icon_Shield_128
+  - Icon_Arrows_128
+  m_RenderDataMap: {}
+  m_Tag: Icons
+  m_IsVariant: 0

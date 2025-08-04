@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1791df80794dbe34c9c32221453f908b, type: 3}
+  m_Name: FemaleCharacterGenerator
+  m_EditorClassIdentifier: 
+  hair:
+    Min: 0
+    Max: 14
+  beard:
+    Min: -1
+    Max: -1
+  hat:
+    Min: -1
+    Max: 6
+  accessory:
+    Min: -1
+    Max: 12
+  shirt:
+    Min: 0
+    Max: 14
+  pants:
+    Min: 0
+    Max: 13
+  shoes:
+    Min: 0
+    Max: 14
+  skinColors:
+    minColors:
+    - {r: 0.8679245, g: 0.5573327, b: 0.45443213, a: 1}
+    - {r: 0.8773585, g: 0.50059885, b: 0.376602, a: 1}
+    maxColors:
+    - {r: 0.764151, g: 0.5065161, b: 0.42172483, a: 1}
+    - {r: 0.7830189, g: 0.4634445, b: 0.35826808, a: 1}
+  eyeColors:
+    minColors:
+    - {r: 0.2985048, g: 0.35996437, b: 0.49056602, a: 0}
+    - {r: 0.25649697, g: 0.41509432, b: 0.29456034, a: 0}
+    - {r: 0.4528302, g: 0.36000675, b: 0.25845498, a: 0}
+    - {r: 0.5377358, g: 0.5097719, b: 0.27140442, a: 0}
+    - {r: 0.24719651, g: 0.47184786, b: 0.5188679, a: 0}
+    maxColors:
+    - {r: 0.14484692, g: 0.16698055, b: 0.1981132, a: 0}
+    - {r: 0.14119795, g: 0.1792453, b: 0.15419549, a: 0}
+    - {r: 0.13207549, g: 0.109012276, b: 0.101548605, a: 0}
+    - {r: 0.13207549, g: 0.1289605, b: 0.1289605, a: 0}
+    - {r: 0.15588287, g: 0.2541195, b: 0.2924528, a: 0}
+  hairColors:
+    minColors:
+    - {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 0}
+    - {r: 0.8113208, g: 0.42166993, b: 0.24110004, a: 0}
+    - {r: 0.3252047, g: 0.4968469, b: 0.7924528, a: 0}
+    - {r: 0.34420612, g: 0.6132076, b: 0.43204337, a: 0}
+    - {r: 0.2754834, g: 0.20392157, b: 0.39607844, a: 0}
+    maxColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+    - {r: 0, g: 0, b: 0, a: 0}
+    - {r: 0, g: 0, b: 0, a: 0}
+    - {r: 0, g: 0, b: 0, a: 0}
+    - {r: 0, g: 0, b: 0, a: 0}
+  headSize:
+    Min: -0.05
+    Max: 0.1
+  headOffset:
+    Min: -10
+    Max: 20
+  height:
+    Min: -0.04
+    Max: 0.07
+  fat:
+    Min: 0
+    Max: 100
+  muscles:
+    Min: 0
+    Max: 100
+  thin:
+    Min: 0
+    Max: 100
+  slimness:
+    Min: 0
+    Max: 100
+  breastSize:
+    Min: -25
+    Max: 50
+  facialBlendshapes:
+  - name: Ear_Size
+    Min: 0
+    Max: 50
+  - name: Ear_Angle
+    Min: 0
+    Max: 75
+  - name: Jaw_Width
+    Min: 0
+    Max: 100
+  - name: Jaw_Offset
+    Min: -50
+    Max: 50
+  - name: Cheek_Size
+    Min: -25
+    Max: 25
+  - name: Chin_Offset
+    Min: -10
+    Max: 10
+  - name: Eye_Form
+    Min: 0
+    Max: 100
+  - name: Eye_ScaleY
+    Min: 0
+    Max: 100
+  - name: Eye_Size
+    Min: -25
+    Max: 25
+  - name: Eye_Height
+    Min: -15
+    Max: 15
+  - name: Brow_Shape
+    Min: -25
+    Max: 50
+  - name: Mouth_Offset
+    Min: -25
+    Max: 25
+  - name: Mouth_Width
+    Min: -40
+    Max: 60
+  - name: Mouth_Size
+    Min: -25
+    Max: 50
+  - name: Brow_Length
+    Min: -25
+    Max: 50
+  - name: Brow_Thickness
+    Min: -25
+    Max: 50
+  - name: Nose_Offset
+    Min: -15
+    Max: 15
+  - name: Nose_Size
+    Min: -20
+    Max: 20
+  - name: Eye_Offset
+    Min: -15
+    Max: 15
+  - name: Eye_Width
+    Min: -25
+    Max: 25
+  - name: Eye_ScaleX
+    Min: -25
+    Max: 75
+  - name: Face_Form
+    Min: -25
+    Max: 25
+  - name: Chin_Form
+    Min: -25
+    Max: 25
+  excludes:
+  - ExcludeItem: 3
+    targetIndex: 5
+    exclude: []
+  - ExcludeItem: 2
+    targetIndex: 0
+    exclude:
+    - item: 4
+      index: 2
+    - item: 3
+      index: 6
+  - ExcludeItem: 2
+    targetIndex: 1
+    exclude:
+    - item: 4
+      index: 2
+    - item: 3
+      index: 6
+  - ExcludeItem: 2
+    targetIndex: 2
+    exclude:
+    - item: 4
+      index: 2
+    - item: 3
+      index: 6
+  - ExcludeItem: 2
+    targetIndex: 3
+    exclude:
+    - item: 4
+      index: 2
+    - item: 3
+      index: 6
+  - ExcludeItem: 2
+    targetIndex: 4
+    exclude:
+    - item: 4
+      index: 2
+    - item: 3
+      index: 6
+  - ExcludeItem: 2
+    targetIndex: 5
+    exclude:
+    - item: 4
+      index: 2
+    - item: 3
+      index: 6
+  - ExcludeItem: 2
+    targetIndex: 6
+    exclude:
+    - item: 4
+      index: 2
+    - item: 3
+      index: 6
+  - ExcludeItem: 0
+    targetIndex: 12
+    exclude:
+    - item: 4
+      index: 2

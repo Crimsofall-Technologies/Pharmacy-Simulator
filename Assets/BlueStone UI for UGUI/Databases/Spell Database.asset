@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6694320caa0568e4fb296afa762666e1, type: 3}
+  m_Name: Spell Database
+  m_EditorClassIdentifier: 
+  spells:
+  - ID: 1
+    Name: Healing Leafs
+    Icon: {fileID: 21300000, guid: d7fbadbb44e6c364797e2aa8666b1b70, type: 3}
+    Description: 
+    Range: 1
+    Cooldown: 1
+    CastTime: 1
+    PowerCost: 1
+    Flags: 4
+  - ID: 2
+    Name: Fireball
+    Icon: {fileID: 21300000, guid: 2a31655c76fa7b14bb331f4d9d5a8d38, type: 3}
+    Description: 
+    Range: 40
+    Cooldown: 30
+    CastTime: 0
+    PowerCost: 10
+    Flags: 4
+  - ID: 3
+    Name: Book
+    Icon: {fileID: 21300000, guid: d487f2dad0149e54dae25b06d65b3600, type: 3}
+    Description: 
+    Range: 0
+    Cooldown: 120
+    CastTime: 0
+    PowerCost: 1000
+    Flags: 2

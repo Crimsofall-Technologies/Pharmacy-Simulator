@@ -1,0 +1,1610 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0b793a5334f714894f560b724e6945, type: 3}
+  m_Name: MaleFacelessSettings
+  m_EditorClassIdentifier: 
+  OriginalMesh: {fileID: 919132149155446097, guid: 82c956c5c3f35de428045f3bc82f74db,
+    type: 3}
+  bodyMaterial: {fileID: 2100000, guid: 72b4350f26c57fe44b39907d978d92c5, type: 2}
+  characterAnimationPresets:
+  - name: Smile
+    blendshapes:
+    - BlendType: 45
+      BlendValue: 100
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    - BlendType: 38
+      BlendValue: 20
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    UseGlobalBlendCurve: 1
+    GlobalBlendAnimationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.3897705
+        value: 1.001564
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.24505536
+      - serializedVersion: 3
+        time: 0.7301575
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.12236124
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    AnimationPlayDuration: 0.5
+    weightPower: 1
+    applyToAllCharacterMeshes: 0
+  - name: Sadness
+    blendshapes:
+    - BlendType: 46
+      BlendValue: 100
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    - BlendType: 25
+      BlendValue: 20
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    UseGlobalBlendCurve: 1
+    GlobalBlendAnimationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.3897705
+        value: 1.001564
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.24505536
+      - serializedVersion: 3
+        time: 0.7301575
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.12236124
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    AnimationPlayDuration: 0.5
+    weightPower: 1
+    applyToAllCharacterMeshes: 0
+  - name: Surprise
+    blendshapes:
+    - BlendType: 47
+      BlendValue: 100
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    - BlendType: 38
+      BlendValue: 80
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    UseGlobalBlendCurve: 1
+    GlobalBlendAnimationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.3897705
+        value: 1.001564
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.24505536
+      - serializedVersion: 3
+        time: 0.7301575
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.12236124
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    AnimationPlayDuration: 0.5
+    weightPower: 1
+    applyToAllCharacterMeshes: 0
+  - name: Thoughtful
+    blendshapes:
+    - BlendType: 48
+      BlendValue: 100
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    UseGlobalBlendCurve: 1
+    GlobalBlendAnimationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.3897705
+        value: 1.001564
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.24505536
+      - serializedVersion: 3
+        time: 0.7301575
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.12236124
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    AnimationPlayDuration: 0.5
+    weightPower: 1
+    applyToAllCharacterMeshes: 0
+  - name: Angry
+    blendshapes:
+    - BlendType: 49
+      BlendValue: 100
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    - BlendType: 25
+      BlendValue: 20
+      BlendAnimationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    UseGlobalBlendCurve: 1
+    GlobalBlendAnimationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.3897705
+        value: 1.001564
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.24505536
+      - serializedVersion: 3
+        time: 0.7301575
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.12236124
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    AnimationPlayDuration: 0.5
+    weightPower: 1
+    applyToAllCharacterMeshes: 0
+  characterBlendshapeDatas:
+  - blendshapeName: Fat
+    type: 0
+    group: 0
+    value: 0
+  - blendshapeName: Muscles
+    type: 1
+    group: 0
+    value: 0
+  - blendshapeName: Thin
+    type: 3
+    group: 0
+    value: 0
+  - blendshapeName: Neck_Width
+    type: 5
+    group: 1
+    value: 0
+  - blendshapeName: Ear_Size
+    type: 6
+    group: 1
+    value: 0
+  - blendshapeName: Ear_Angle
+    type: 7
+    group: 1
+    value: 0
+  - blendshapeName: Jaw_Width
+    type: 8
+    group: 1
+    value: 0
+  - blendshapeName: Jaw_Offset
+    type: 9
+    group: 1
+    value: 0
+  - blendshapeName: Jaw_Shift
+    type: 10
+    group: 1
+    value: 0
+  - blendshapeName: Cheek_Size
+    type: 11
+    group: 1
+    value: 0
+  - blendshapeName: Chin_Offset
+    type: 12
+    group: 1
+    value: 0
+  - blendshapeName: Eye_Width
+    type: 13
+    group: 1
+    value: 0
+  - blendshapeName: Eye_Form
+    type: 14
+    group: 1
+    value: 0
+  - blendshapeName: Eye_InnerCorner
+    type: 15
+    group: 1
+    value: 0
+  - blendshapeName: Eye_Corner
+    type: 16
+    group: 1
+    value: 0
+  - blendshapeName: Eye_Rotation
+    type: 17
+    group: 1
+    value: 0
+  - blendshapeName: Eye_Offset
+    type: 18
+    group: 1
+    value: 0
+  - blendshapeName: Eye_OffsetH
+    type: 19
+    group: 1
+    value: 0
+  - blendshapeName: Eye_ScaleX
+    type: 20
+    group: 1
+    value: 0
+  - blendshapeName: Eye_ScaleY
+    type: 21
+    group: 1
+    value: 0
+  - blendshapeName: Eye_Size
+    type: 22
+    group: 1
+    value: 0
+  - blendshapeName: Eye_Close
+    type: 23
+    group: 1
+    value: 0
+  - blendshapeName: Eye_Height
+    type: 24
+    group: 1
+    value: 0
+  - blendshapeName: Brow_Height
+    type: 25
+    group: 1
+    value: 0
+  - blendshapeName: Brow_Shape
+    type: 26
+    group: 1
+    value: 0
+  - blendshapeName: Brow_Thickness
+    type: 27
+    group: 1
+    value: 0
+  - blendshapeName: Brow_Length
+    type: 28
+    group: 1
+    value: 0
+  - blendshapeName: Nose_Length
+    type: 29
+    group: 1
+    value: 0
+  - blendshapeName: Nose_Size
+    type: 30
+    group: 1
+    value: 0
+  - blendshapeName: Nose_Angle
+    type: 31
+    group: 1
+    value: 0
+  - blendshapeName: Nose_Offset
+    type: 32
+    group: 1
+    value: 0
+  - blendshapeName: Nose_Bridge
+    type: 33
+    group: 1
+    value: 0
+  - blendshapeName: Nose_Hump
+    type: 34
+    group: 1
+    value: 0
+  - blendshapeName: Mouth_Offset
+    type: 35
+    group: 1
+    value: 0
+  - blendshapeName: Mouth_Width
+    type: 36
+    group: 1
+    value: 0
+  - blendshapeName: Mouth_Size
+    type: 37
+    group: 1
+    value: 0
+  - blendshapeName: Mouth_Open
+    type: 38
+    group: 1
+    value: 0
+  - blendshapeName: Mouth_Bulging
+    type: 39
+    group: 1
+    value: 0
+  - blendshapeName: LipsCorners_Offset
+    type: 40
+    group: 1
+    value: 0
+  - blendshapeName: Face_Form
+    type: 41
+    group: 1
+    value: 0
+  - blendshapeName: Chin_Width
+    type: 42
+    group: 1
+    value: 0
+  - blendshapeName: Chin_Form
+    type: 43
+    group: 1
+    value: 0
+  - blendshapeName: Head_Offset
+    type: 44
+    group: 2
+    value: 0
+  - blendshapeName: Smile
+    type: 45
+    group: 1
+    value: 0
+  - blendshapeName: Sadness
+    type: 46
+    group: 1
+    value: 0
+  - blendshapeName: Surprise
+    type: 47
+    group: 1
+    value: 0
+  - blendshapeName: Thoughtful
+    type: 48
+    group: 1
+    value: 0
+  - blendshapeName: Angry
+    type: 49
+    group: 1
+    value: 0
+  - blendshapeName: BackpackOffset
+    type: 50
+    group: 2
+    value: 0
+  hairPresets:
+  - name: Hair Type 0
+    mesh:
+    - {fileID: 4300160, guid: 1b8f3f34252d9ee44823ab05504b31a8, type: 3}
+    - {fileID: 4300134, guid: 1b8f3f34252d9ee44823ab05504b31a8, type: 3}
+    - {fileID: 4300108, guid: 1b8f3f34252d9ee44823ab05504b31a8, type: 3}
+    - {fileID: 4300082, guid: 1b8f3f34252d9ee44823ab05504b31a8, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 1
+    mesh:
+    - {fileID: 4300002, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300008, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300018, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300026, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 2
+    mesh:
+    - {fileID: 4300000, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300016, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300028, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300038, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 3
+    mesh:
+    - {fileID: 4300004, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300012, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300020, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300030, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 4
+    mesh:
+    - {fileID: 4300002, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300018, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300028, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300038, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 5
+    mesh:
+    - {fileID: 4300004, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300012, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300022, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300038, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 6
+    mesh:
+    - {fileID: 4300006, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300018, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300028, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300038, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 7
+    mesh:
+    - {fileID: 4300002, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300014, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300022, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300028, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 8
+    mesh:
+    - {fileID: 4300006, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300010, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300016, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300028, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 9
+    mesh:
+    - {fileID: 4300002, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300018, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300028, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300032, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 10
+    mesh:
+    - {fileID: 4300004, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300018, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300028, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300034, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 11
+    mesh:
+    - {fileID: 4300000, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300010, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300020, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300030, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 12
+    mesh:
+    - {fileID: 4300002, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300012, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300022, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300032, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 13
+    mesh:
+    - {fileID: 4300004, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300014, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300024, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300034, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 14
+    mesh:
+    - {fileID: 4300006, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300016, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300026, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300036, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Hair Type 15
+    mesh:
+    - {fileID: 4300008, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300018, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300028, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    - {fileID: 4300038, guid: 4a8a5833b9f72de43a876138c8f460dc, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  beardPresets:
+  - name: Beard Type 1
+    mesh:
+    - {fileID: 4300000, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300020, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300040, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300060, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 2
+    mesh:
+    - {fileID: 4300002, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300022, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300042, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300062, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 3
+    mesh:
+    - {fileID: 4300004, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300024, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300044, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300064, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 4
+    mesh:
+    - {fileID: 4300006, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300026, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300046, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300066, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 5
+    mesh:
+    - {fileID: 4300008, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300028, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300048, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300068, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 6
+    mesh:
+    - {fileID: 4300010, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300030, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300050, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300070, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 7
+    mesh:
+    - {fileID: 4300012, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300032, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300052, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300072, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 8
+    mesh:
+    - {fileID: 4300014, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300034, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300054, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300074, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 9
+    mesh:
+    - {fileID: 4300016, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300036, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300056, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300076, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  - name: Beard Type 10
+    mesh:
+    - {fileID: 4300018, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300038, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300058, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    - {fileID: 4300078, guid: 182a52564125e7043a9c544a753905ce, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats: []
+  hatsPresets:
+  - name: Hat Type 1
+    mesh:
+    - {fileID: 4300002, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300018, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300020, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300032, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    hideParts:
+    - Hair
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Hat Type 2
+    mesh:
+    - {fileID: 4300004, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300014, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300020, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300032, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    hideParts:
+    - Hair
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Hat Type 3
+    mesh:
+    - {fileID: 4300006, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300016, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300022, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300036, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    hideParts:
+    - Hair
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Police Hat 1
+    mesh:
+    - {fileID: 4300000, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300008, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300022, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300026, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    hideParts:
+    - Hair
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Firefighter Hat 1
+    mesh:
+    - {fileID: 4112896015179607888, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: 1395388709805203656, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: -3445776992712548201, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: 6951885219284516788, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    hideParts:
+    - Hair
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Worker Hat 1
+    mesh:
+    - {fileID: 4300006, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300014, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300016, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300024, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    hideParts:
+    - Hair
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Police Hat 2
+    mesh:
+    - {fileID: 4300006, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300008, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300020, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300030, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    hideParts:
+    - Hair
+    - Beard
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  accessoryPresets:
+  - name: Accessory Type 1
+    mesh:
+    - {fileID: 4300008, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300016, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300020, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300032, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+    - {fileID: 2100000, guid: a4d90c6a694253e4380dd8ad8aca9b32, type: 2}
+  - name: Accessory Type 2
+    mesh:
+    - {fileID: 4300002, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300016, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300028, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300036, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+    - {fileID: 2100000, guid: a4d90c6a694253e4380dd8ad8aca9b32, type: 2}
+  - name: Accessory Type 3
+    mesh:
+    - {fileID: 4300000, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300016, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300020, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300034, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+    - {fileID: 2100000, guid: a4d90c6a694253e4380dd8ad8aca9b32, type: 2}
+  - name: Accessory Type 4
+    mesh:
+    - {fileID: 4300000, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300020, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300040, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300060, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Accessory Type 5
+    mesh:
+    - {fileID: 4300002, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300022, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300042, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300062, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Accessory Type 6
+    mesh:
+    - {fileID: 4300004, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300024, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300044, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300064, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Accessory Type 7
+    mesh:
+    - {fileID: 4300006, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300026, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300046, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300066, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Accessory Type 8
+    mesh:
+    - {fileID: 4300008, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300028, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300048, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300068, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Accessory Type 9
+    mesh:
+    - {fileID: 4300010, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300030, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300050, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300070, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+    - {fileID: 2100000, guid: a4d90c6a694253e4380dd8ad8aca9b32, type: 2}
+  - name: Accessory Type 10
+    mesh:
+    - {fileID: 4300012, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300032, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300052, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300072, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts:
+    - Beard
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Accessory Type 11
+    mesh:
+    - {fileID: 4300014, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300034, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300054, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300074, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+    - {fileID: 2100000, guid: a4d90c6a694253e4380dd8ad8aca9b32, type: 2}
+  - name: Accessory Type 12
+    mesh:
+    - {fileID: 4300016, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300036, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300056, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300076, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+    - {fileID: 2100000, guid: a4d90c6a694253e4380dd8ad8aca9b32, type: 2}
+  - name: Accessory Type 13
+    mesh:
+    - {fileID: 4300018, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300038, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300058, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    - {fileID: 4300078, guid: 9f708d8618ebd254389d50caf98f9cae, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+    - {fileID: 2100000, guid: a4d90c6a694253e4380dd8ad8aca9b32, type: 2}
+  shirtsPresets:
+  - name: Shirt Type 1
+    mesh:
+    - {fileID: 4300004, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300012, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300022, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300024, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 2
+    mesh:
+    - {fileID: 4300006, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300014, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300022, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300030, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    hideParts:
+    - Stomach
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 3
+    mesh:
+    - {fileID: 4300000, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300010, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300018, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300024, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    - Arms
+    - Hair
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 4
+    mesh:
+    - {fileID: 4300006, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300014, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300024, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300036, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 5
+    mesh:
+    - {fileID: 4300008, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300010, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300026, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300032, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 6
+    mesh:
+    - {fileID: 4300008, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300012, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300022, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300030, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 7
+    mesh:
+    - {fileID: 4300000, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300008, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300018, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300024, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 8
+    mesh:
+    - {fileID: 4300002, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300008, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300022, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300024, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 9
+    mesh:
+    - {fileID: 4300008, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300010, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300026, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300038, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shirt Type 10
+    mesh:
+    - {fileID: 4300008, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300010, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300026, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300038, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Police Shirt Type 1
+    mesh:
+    - {fileID: 4300004, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300014, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300018, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300028, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Firefighter Shirt Type 1
+    mesh:
+    - {fileID: -152745949287710402, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: 8820014141138196385, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: -8501191954401608092, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: -5757931416479868382, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    hideParts:
+    - Chest
+    - Stomach
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Doctor Shirt Type 1
+    mesh:
+    - {fileID: 4300004, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300006, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300012, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300020, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    hideParts:
+    - Stomach
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Worker Shirt Type 1
+    mesh:
+    - {fileID: 4300000, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300010, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300018, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300028, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    hideParts:
+    - Stomach
+    - Chest
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Police Shirt Type 2
+    mesh:
+    - {fileID: 4300000, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300014, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300018, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300028, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    hideParts:
+    - Stomach
+    - Chest
+    - Shoulders
+    - Arms
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  pantsPresets:
+  - name: Pants Type 1
+    mesh:
+    - {fileID: 4300006, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300010, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300016, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300030, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 2
+    mesh:
+    - {fileID: 4300004, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300012, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300024, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300034, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    hideParts:
+    - Hip
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 3
+    mesh:
+    - {fileID: 4300002, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300008, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300016, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300028, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 4
+    mesh:
+    - {fileID: 4300000, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300010, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300022, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300030, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 5
+    mesh:
+    - {fileID: 4300000, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300014, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300020, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300030, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 6
+    mesh:
+    - {fileID: 4300002, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300010, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300024, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300034, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 7
+    mesh:
+    - {fileID: 4300004, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300010, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300016, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300026, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 8
+    mesh:
+    - {fileID: 4300004, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300014, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300018, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300026, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 9
+    mesh:
+    - {fileID: 4300004, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300014, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300022, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300030, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Pants Type 10
+    mesh:
+    - {fileID: 4300000, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300012, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300020, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300030, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Police Pants Type 1
+    mesh:
+    - {fileID: 4300002, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300012, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300016, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300024, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Firefighter Pants Type 1
+    mesh:
+    - {fileID: 8714263802875950112, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: -96057473386689795, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: -6999429845366789959, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: 3300379063027416147, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Doctor Pants Type 1
+    mesh:
+    - {fileID: 4300000, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300008, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300014, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300018, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Worker Pants Type 1
+    mesh:
+    - {fileID: 4300002, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300008, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300020, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300026, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Police Pants Type 2
+    mesh:
+    - {fileID: 4300004, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300012, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300016, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300024, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  shoesPresets:
+  - name: Shoes Type 1
+    mesh:
+    - {fileID: 4300000, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300014, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300020, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    - {fileID: 4300028, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 2
+    mesh:
+    - {fileID: 4300008, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300010, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300026, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    - {fileID: 4300036, guid: 22e96424c8244c94c9e181ff91150a70, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 3
+    mesh:
+    - {fileID: 4300006, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300014, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300022, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    - {fileID: 4300026, guid: a5d26f5a0a5f1304eb79016dd0ce2381, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 4
+    mesh:
+    - {fileID: 4300004, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300012, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300026, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    - {fileID: 4300034, guid: 710562409f80de845aefacefcbf09be1, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 5
+    mesh:
+    - {fileID: 4300006, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300018, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300024, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    - {fileID: 4300034, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 6
+    mesh:
+    - {fileID: 4300000, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300016, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300026, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    - {fileID: 4300036, guid: a5495b0c4720e134a88fda0cccad5d03, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 7
+    mesh:
+    - {fileID: 4300006, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300012, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300020, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    - {fileID: 4300030, guid: c5b2e1a01aa0b7147ab8fa5202e559d9, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 8
+    mesh:
+    - {fileID: 4300000, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300012, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300020, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    - {fileID: 4300030, guid: d5c7146d81e23d6418266720878a9367, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 9
+    mesh:
+    - {fileID: 4300006, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300012, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300024, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    - {fileID: 4300036, guid: 8d16746f29c646a4fbccda553960bef7, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Shoes Type 10
+    mesh:
+    - {fileID: 4300002, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300014, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300024, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    - {fileID: 4300032, guid: f019d09ecbb343f4eae1412ba83ab1af, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Police Shoes Type 1
+    mesh:
+    - {fileID: 4300006, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300010, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300020, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    - {fileID: 4300030, guid: 596df37a60f184147b2c51823d3154e4, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Firefighter Shoes Type 1
+    mesh:
+    - {fileID: 1724404000118530182, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: 8108809306048528884, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: -594230159852502183, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    - {fileID: -7502814256954355322, guid: 8843078908b68df489b797d3bc2ff767, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Doctor Shoes Type 1
+    mesh:
+    - {fileID: 4300002, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300010, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300016, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    - {fileID: 4300022, guid: 31b84a99ca1940f41802ab06937f740e, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Worker Shoes Type 1
+    mesh:
+    - {fileID: 4300004, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300012, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300022, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    - {fileID: 4300030, guid: ec53eba6a90aa4a42a35bc62dc833b79, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Police Shoes Type 2
+    mesh:
+    - {fileID: 4300002, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300010, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300022, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    - {fileID: 4300026, guid: d98d8b982721a064193b96433b9f6344, type: 3}
+    hideParts:
+    - Foot
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  item1Presets:
+  - name: Backpack Type 1
+    mesh:
+    - {fileID: 4300000, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300002, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300004, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300006, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Backpack Type 2
+    mesh:
+    - {fileID: 4300008, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300016, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300020, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300024, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Backpack Type 3
+    mesh:
+    - {fileID: 4300010, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300018, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300022, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300026, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Backpack Type 4
+    mesh:
+    - {fileID: 4300012, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300028, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300032, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300030, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Backpack Type 5
+    mesh:
+    - {fileID: 4300014, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300034, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300036, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    - {fileID: 4300038, guid: 21f4320ca304e9b45b081b38b5be2ea0, type: 3}
+    hideParts: []
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  settingsSelectors:
+  - name: Male
+    settings: {fileID: 11400000}
+  - name: Female
+    settings: {fileID: 11400000, guid: 843405cf5263c2a4b900d4d232dd00cd, type: 2}
+  Animator: {fileID: 9100000, guid: 73dfba487f63297498cf4b2ae53f6fb5, type: 2}
+  Avatar: {fileID: 9000000, guid: 82c956c5c3f35de428045f3bc82f74db, type: 3}
+  generator: {fileID: 11400000, guid: 9d338fc758b43984b86fa986b9df3726, type: 2}
+  DefaultSelectedElements:
+    Hair: 0
+    Beard: -1
+    Hat: -1
+    Shirt: -1
+    Pants: -1
+    Shoes: -1
+    Accessory: -1
+    Item1: -1
