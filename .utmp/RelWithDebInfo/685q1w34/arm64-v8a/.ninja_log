@@ -1,0 +1,10 @@
+# ninja log v5
+28	1697	7737020844070206	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	4cce2a131b638ac9
+38	1732	7737020844543870	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	10669cf1ea6f52d2
+17	1744	7737020844785922	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	87d2b909e8720652
+77	1760	7737020845028506	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c801c1a29bb2d7dd
+65	1903	7737020846468299	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	93cb4fa023b7bcfd
+9	2014	7737020847562538	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ee28ea330693a525
+49	2263	7737020850066115	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	aed59607b034a88a
+0	2698	7737020853802506	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2103084a9d895e82
+2706	3387	7737020859457758	D:/PROJECTS/Hospital Game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/685q1w34/obj/arm64-v8a/libgame.so	5b673b97d52c90ac
