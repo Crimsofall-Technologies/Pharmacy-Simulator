@@ -120,5 +120,11 @@ public class ResearchBar : MonoBehaviour
 
 		//PlayerPrefs.SetInt("RES_"+Name, 1);
 		Researching = false;
+
+		//give EXP
+		GlobalVar.Instance.currentXP ++;
+
+		if(GlobalVar.Instance.currentXP >= GlobalVar.Instance.nextXP)
+			GameManager.Instance.LevelUp();
     }
 }

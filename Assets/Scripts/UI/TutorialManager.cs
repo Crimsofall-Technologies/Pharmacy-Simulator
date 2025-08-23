@@ -174,7 +174,7 @@ public class TutorialManager : MonoBehaviour
     {
 		if (TutorialRunning && !f && !NoTutor)
 		{
-			ShowTutorMessage("You have now gained a level you can now upgrade/research things & you can also create new warehouses.");
+			ShowTutorMessage("You have now gained a level you can now upgrade/research things & you can also create new departments.");
 
 			Invoke(nameof(OpenBuildUI), 2f);
 			Invoke(nameof(OnBuilding), 1f);
@@ -187,7 +187,7 @@ public class TutorialManager : MonoBehaviour
     public void OnBuilding()
     {
         if (TutorialRunning && !h && !NoTutor)
-            ShowTutorMessage("You will now have to build the Ice-Cream warehouse to gain more upgrades for Ice-Creams (scroll down & tap the icon to build).");
+            ShowTutorMessage("You will now have to build the Ice-Cream department to gain more upgrades for Ice-Creams (scroll down & tap the icon to build).");
         h = true;
     }
 
@@ -195,7 +195,7 @@ public class TutorialManager : MonoBehaviour
     {
 		if (TutorialRunning && !j && !NoTutor)
 		{
-			ShowTutorMessage("Congrats! You have now created the Ice Cream Warehouse! now you can research more tastier Ice-Cream flavors (the same happens with all other buildings).");
+			ShowTutorMessage("Congrats! You have now created the Ice Cream Department! now you can research more tastier Ice-Cream flavors (the same happens with all other buildings).");
 			j = true;
 		}
 	}

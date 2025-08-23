@@ -55,19 +55,16 @@ public class Shopper : MonoBehaviour
 	public void OnBubbleCreated(Bubble bub)
 	{
 		myBubble = bub;
-		
-		//automatically complete orders for player by pressing automatically after 2 seconds:
-		if(GameManager.Instance.perksManager.AutoFill) 
-		{
-			Invoke(nameof(OnBubbleClicked), 2f);
-		}
 	}
 	
 	public void OnBubbleClicked()
 	{	
 		//It takes time to fill stock for player:
 		completingOrder = true;
-		orderCompleteTimeLeft = orderCompleteDelay * (GameManager.Instance.perksManager.DoubleSpeed ? 0.5f:1f);
+		if(!IsThief)
+			orderCompleteTimeLeft = orderCompleteDelay * (GameManager.Instance.perksManager.DoubleSpeed ? 0.5f:1f);
+		else //faster time for catching thieves:
+			orderCompleteTimeLeft = 2f;
 	}
 	
 	private void Delayed_CompletedOrder()
@@ -175,6 +172,12 @@ public class Shopper : MonoBehaviour
             }
 
 			return;
+		}
+
+		//automatically complete orders for player by pressing automatically after 2 seconds:
+		if(GameManager.Instance.perksManager.HelperActive && !IsThief) 
+		{
+			Invoke(nameof(OnBubbleClicked), 2f);
 		}
 
         if (target == null)

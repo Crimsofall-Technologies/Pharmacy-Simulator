@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
 		}
 		
 		string timerName = "Unknown_Timer";
-		int time = BaseTime;
+		int time = 60; //basically one min!
 		
 		if(index == 0) { 
 			timerName = "G_Timer"; 

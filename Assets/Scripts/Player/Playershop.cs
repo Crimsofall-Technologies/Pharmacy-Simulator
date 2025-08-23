@@ -135,10 +135,20 @@ public class Playershop : MonoBehaviour
         }
     }
 
+	private GameObject GuardObject;
+
 	public void SpawnGuard() 
 	{
-		Instantiate(guardPrefab, guardSpawnPoint.position, Quaternion.identity);
+		GuardObject = Instantiate(guardPrefab, guardSpawnPoint.position, Quaternion.identity);
 		HasGuard = true;
+	}
+
+	public void RemoveGuard(){
+		if(GuardObject == null)
+			return;
+
+		Destroy(GuardObject);
+		HasGuard = false;
 	}
 
 	public void ResearchedItem(string Type) 

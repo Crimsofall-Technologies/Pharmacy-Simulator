@@ -67,7 +67,7 @@ public class TaskList : MonoBehaviour
             else
                 ShopperTypeToTask = ShopperType.Groceries;
 
-            N = $"Sell Type: '{ShopperTypeToTask}' - {shopperTypeCurrent}/{shopperTypeMax}";
+            N = $"Sell: '{ShopperTypeToTask}' - {shopperTypeCurrent}/{shopperTypeMax}";
             s = UIManager.Instance.ShopperTypeSprites[(int)ShopperTypeToTask];
             TaskShop = true;
         }
@@ -80,14 +80,14 @@ public class TaskList : MonoBehaviour
         }
         else if (rnd <= 0.8f && !isFirstTask) //thieves (not for the first random task player gets)
         {
-            thiefToCatchMax = Random.Range(3, 8);
+            thiefToCatchMax = Random.Range(3, 6);
             N = $"Catch {thiefToCatchCurrent}/{thiefToCatchMax} Thieves";
             s = npcSprite;
             TaskThief = true;
         }
         else if (rnd <= 1f) //gold 
         {
-            TaskGold = Mathf.RoundToInt((GameManager.Instance.Level / 2f) * Random.Range(1, 5) * 150);
+            TaskGold = Mathf.RoundToInt(GameManager.Instance.Level / 2f * Random.Range(1, 5) * 150);
             N = $"Collect {currentTaskGold}/{TaskGold} Cash";
             s = moneySprite;
             TaskGoldB = true;
@@ -145,6 +145,7 @@ public class TaskList : MonoBehaviour
             Destroy(currentTaskGO);
 
             GenerateNewRandomTask();
+            UIManager.Instance.UpdateUI();
         }
     }
 
@@ -168,6 +169,7 @@ public class TaskList : MonoBehaviour
             Destroy(currentTaskGO);
 
             GenerateNewRandomTask();
+            UIManager.Instance.UpdateUI();
         }
     }
 
@@ -178,7 +180,7 @@ public class TaskList : MonoBehaviour
         if (ShopperTypeToTask == type) 
         {
             shopperTypeCurrent++;
-            currentTaskText.text = $"Sell Type: '{ShopperTypeToTask}' - {shopperTypeCurrent}/{shopperTypeMax}";
+            currentTaskText.text = $"Sell: '{ShopperTypeToTask}' - {shopperTypeCurrent}/{shopperTypeMax}";
             
             if (shopperTypeCurrent >= shopperTypeMax) 
             {
@@ -194,6 +196,7 @@ public class TaskList : MonoBehaviour
                 Destroy(currentTaskGO);
 
                 GenerateNewRandomTask();
+                UIManager.Instance.UpdateUI();
             }
         }
     }
@@ -218,6 +221,7 @@ public class TaskList : MonoBehaviour
             Destroy(currentTaskGO);
 
             GenerateNewRandomTask();
+            UIManager.Instance.UpdateUI();
         }
     }
 }
