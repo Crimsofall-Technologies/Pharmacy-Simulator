@@ -197,6 +197,9 @@ public class Playershop : MonoBehaviour
 
 		GlobalVar.Instance.AddCurrency(total * (GameManager.Instance.perksManager.DoubleMoney ? 2 : 1));
         
+		//add a bit of XP
+		GlobalVar.Instance.AddXP(GameManager.Instance.shopperXp);
+
 		//Update for Task!
         UIManager.Instance.taskList.OnCollectedGold(total);
         UIManager.Instance.UpdateUI();

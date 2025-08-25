@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
 	private CustomData data;
 	public int remainingTime, maxTime;
 	public GameObject myUIO;
-	private bool useRealTime;
+	private bool useRealTime=false;
 	
 	public void Init(int time, string ID, CustomData _data, bool _useRealTime)
 	{
@@ -36,9 +36,9 @@ public class Timer : MonoBehaviour
 		while(remainingTime > 0)
 		{
 			if(!useRealTime)
-				yield return new WaitForSeconds(1.0f * (GameManager.Instance.perksManager.DoubleSpeed ? 0.5f : 1f));
+				yield return new WaitForSeconds(1.0f);
             else
-                yield return new WaitForSecondsRealtime(1.0f * (GameManager.Instance.perksManager.DoubleSpeed ? 0.5f : 1f)); //goes on regardless of game is paused or not.
+                yield return new WaitForSecondsRealtime(1.0f); //goes on regardless of game is paused or not.
             remainingTime--;
 			OnTickAction?.Invoke(data, remainingTime);
 		}

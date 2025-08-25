@@ -127,6 +127,10 @@ public class CreatableBuildings : MonoBehaviour
 				if (Buildings[i].Level > 1)
 					time = GameManager.Instance.BaseTime * (Buildings[i].Level + 2);
 
+				//make the time half if double timer is on
+				if(GameManager.Instance.perksManager.DoubleSpeed)
+					time /= 2;
+
 				camManager.SwitchCamera(Buildings[i].cameraType);
                 
 				Timer timer = TimerManager.CreateTimerWithUI(Name, time, data, Buildings[i].Ground.transform);

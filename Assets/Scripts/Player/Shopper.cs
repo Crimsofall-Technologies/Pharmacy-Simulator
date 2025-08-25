@@ -16,7 +16,7 @@ public class Shopper : MonoBehaviour
 	private NPCAreasManager areasManager;
 	private NavMeshAgent agent;
 	private Transform target = null;
-	private bool OrderComplete, hasTakenSomething, completingOrder, waitingAtCashier;
+	private bool OrderComplete, hasTakenSomething, bubbleClicked, waitingAtCashier, autoBubbleClicked;
 
 	public bool hasPaid { get; private set; }
 
@@ -45,7 +45,7 @@ public class Shopper : MonoBehaviour
 		Order = order.ToList();
 		shop = s;
 		areasManager = a;
-		completingOrder = false;
+		bubbleClicked = false;
 		Types = shopperTypes;
 
 		target = shop.GetClosePosition(Types[currentIndex], this);
@@ -60,9 +60,11 @@ public class Shopper : MonoBehaviour
 	public void OnBubbleClicked()
 	{	
 		//It takes time to fill stock for player:
-		completingOrder = true;
+		bubbleClicked = true;
+
 		if(!IsThief)
-			orderCompleteTimeLeft = orderCompleteDelay * (GameManager.Instance.perksManager.DoubleSpeed ? 0.5f:1f);
+			//orderCompleteTimeLeft = orderCompleteDelay * (GameManager.Instance.perksManager.DoubleSpeed ? 0.5f:1f);
+			orderCompleteTimeLeft = orderCompleteDelay;
 		else //faster time for catching thieves:
 			orderCompleteTimeLeft = 2f;
 	}
@@ -75,7 +77,7 @@ public class Shopper : MonoBehaviour
 
         //means shopper has brought something (avoid leaving shop without paying)
         hasTakenSomething = true;
-        completingOrder = false;
+        bubbleClicked = false;
 
 		if (leavingShop)
 			return;
@@ -144,7 +146,7 @@ public class Shopper : MonoBehaviour
         if (myBubble != null)
             myBubble.SetPosition(UI.cam.WorldToScreenPoint(transform.position));
 			
-		if(completingOrder)
+		if(bubbleClicked)
 		{
 			orderCompleteTimeLeft -= Time.deltaTime;
 			if(myBubble != null) 
@@ -175,9 +177,12 @@ public class Shopper : MonoBehaviour
 		}
 
 		//automatically complete orders for player by pressing automatically after 2 seconds:
-		if(GameManager.Instance.perksManager.HelperActive && !IsThief) 
+		//also make sure it is not already clickd and the NPC is standing
+		if(!autoBubbleClicked && myBubble != null && GameManager.Instance.perksManager.HelperActive && agent.velocity.magnitude <= 0.5f && 
+		!IsThief) 
 		{
 			Invoke(nameof(OnBubbleClicked), 2f);
+			autoBubbleClicked = false;
 		}
 
         if (target == null)
@@ -233,7 +238,7 @@ public class Shopper : MonoBehaviour
         agent.SetDestination(target.position);
 		CalculateRemainingDistance();
 
-        if (remainingDistance <= 2f)
+        if (remainingDistance <= 1f)
         {
         	//make sure the agent is stopped before facing the region
         	if(agent.velocity.magnitude <= 0.25f)
@@ -268,9 +273,9 @@ public class Shopper : MonoBehaviour
 				
 				if(IsThief) //just watch an area and leave shop immediately taking money from player
                     Invoke(nameof(DelayedPay), 8.5f); 
-				else
-					TutorialManager.Instance.OnFirstNPC();
-
+				else if(TutorialManager.Instance.TutorialRunning) {
+					Invoke(nameof(FirstNpcTutor), 2f);
+				}
 		        waitingForOrder = true;
 
                 //this area is occupied make it be done right when NPC sets target, so no other NPC will take it's place.
@@ -284,7 +289,7 @@ public class Shopper : MonoBehaviour
 	private void DelayedPay()
 	{
 		//player caught the thief?
-		if (IsThief && completingOrder)
+		if (IsThief && bubbleClicked)
 			return;
 
 		if (myBubble != null) //called when player actually clicked on it
@@ -317,6 +322,10 @@ public class Shopper : MonoBehaviour
 		target = areasManager.GetAwayAreaPosition(IsThief);
 		hasPaid = true;
     }
+
+	private void FirstNpcTutor() {
+		TutorialManager.Instance.OnFirstNPC();
+	}
 
     private void CalculateRemainingDistance()
 	{

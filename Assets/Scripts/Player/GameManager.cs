@@ -18,8 +18,7 @@ public class GameManager : MonoBehaviour
 		Application.targetFrameRate = targetFPS;
 		Time.timeScale = timeScale;
 		
-		GlobalVar.Instance.currentXP = 0;
-		GlobalVar.Instance.nextXP = 2;
+		GlobalVar.Instance.nextXp = 500;
 
 		if (DebugTime) 
 			BaseTime = 5; //for testing game it should be very small delays
@@ -38,6 +37,8 @@ public class GameManager : MonoBehaviour
 
 	[Space]
 	public int BaseTime = 120; //this will be added everywhere!
+
+	public int researchXP = 75, taskXP = 50, shopperXp = 10;
 	
 	[Space]
 	public Playershop shop;
@@ -57,13 +58,13 @@ public class GameManager : MonoBehaviour
 		TutorialManager.Instance.OnGameStart();
 
         ui.taskFill.minValue = GlobalVar.Instance.currentXP;
-        ui.taskFill.maxValue = GlobalVar.Instance.nextXP;
+        ui.taskFill.maxValue = GlobalVar.Instance.nextXp;
     }
 	
 	//this calculates and removes X number of boxes from shop!
 	public int GetNumberOfBoxesPerShopper()
 	{
-		int n = Mathf.RoundToInt(((float)maxBoxes / (float)shop.itemsMax));
+		int n = Mathf.RoundToInt((float)maxBoxes / (float)shop.itemsMax);
 		if(n <= 0) 
 			n = 1;
 		return n;
@@ -74,8 +75,7 @@ public class GameManager : MonoBehaviour
 		Level++;
 		shop.TryUnlockShopAreas();
 
-		GlobalVar.Instance.currentXP = 0;
-		GlobalVar.Instance.nextXP = (int)(6f * Level);
+		GlobalVar.Instance.nextXp = Level * 500; //increase 500 XP per level!
 		Invoke(nameof(NextLevelUp), 1f);
 
 		//achievements!
@@ -98,24 +98,7 @@ public class GameManager : MonoBehaviour
 		ui.OpenLevelUpUI();
 		
 		ui.taskFill.minValue = GlobalVar.Instance.currentXP;
-		ui.taskFill.maxValue = GlobalVar.Instance.nextXP;
-	}
-	
-	private string GetSortedTimeFromSeconds(int time)
-	{
-		int totalSec = Mathf.FloorToInt((float)time);
-		int hours = totalSec / 3600;
-		int minutes = (totalSec % 3600) / 60;
-		int seconds = totalSec % 60;
-
-		string result = "";
-
-		if (hours > 0) result += $"{hours}h";
-		if (minutes > 0 || hours > 0) result += $" {minutes}m";
-		result += $" {seconds}s";
-
-		//returns in format: 1h 2m 5s
-		return result.Trim();
+		ui.taskFill.maxValue = GlobalVar.Instance.nextXp;
 	}
 	
 	public void Refill(int index)
@@ -128,6 +111,10 @@ public class GameManager : MonoBehaviour
 		
 		string timerName = "Unknown_Timer";
 		int time = 60; //basically one min!
+
+		//make the time half if double timer is on
+		if(perksManager.DoubleSpeed)
+			time /= 2;
 		
 		if(index == 0) { 
 			timerName = "G_Timer"; 
@@ -165,11 +152,11 @@ public class GameManager : MonoBehaviour
 		timer.OnCompleteAction += OnRefillTimerCompleted;
 
 		//show on UI as soon player presses fill.
-        if (index == 0) ui.groceryText.text = GetSortedTimeFromSeconds(time);
-        if (index == 1) ui.pharmacyText.text = GetSortedTimeFromSeconds(time);
-        if (index == 2) ui.iceCreamText.text = GetSortedTimeFromSeconds(time);
-        if (index == 3) ui.drinksText.text = GetSortedTimeFromSeconds(time);
-        if (index == 4) ui.vaccineText.text = GetSortedTimeFromSeconds(time);
+        if (index == 0) ui.groceryText.text = StringSimplifier.GetSortedTimeFromSeconds(time);
+        if (index == 1) ui.pharmacyText.text = StringSimplifier.GetSortedTimeFromSeconds(time);
+        if (index == 2) ui.iceCreamText.text = StringSimplifier.GetSortedTimeFromSeconds(time);
+        if (index == 3) ui.drinksText.text = StringSimplifier.GetSortedTimeFromSeconds(time);
+        if (index == 4) ui.vaccineText.text = StringSimplifier.GetSortedTimeFromSeconds(time);
 
         ui.UpdateUI();
 	}
@@ -177,11 +164,11 @@ public class GameManager : MonoBehaviour
 	private void OnRefillTimerMoved(Timer.CustomData data, int remainingTime)
 	{
 		//show remaining time on UI:
-		if (data._int == 0) ui.groceryText.text = GetSortedTimeFromSeconds(remainingTime);
-		if(data._int == 1) ui.pharmacyText.text = GetSortedTimeFromSeconds(remainingTime);
-		if(data._int == 2) ui.iceCreamText.text = GetSortedTimeFromSeconds(remainingTime);
-		if(data._int == 3) ui.drinksText.text = GetSortedTimeFromSeconds(remainingTime);
-		if (data._int == 4) ui.vaccineText.text = GetSortedTimeFromSeconds(remainingTime);
+		if (data._int == 0) ui.groceryText.text = StringSimplifier.GetSortedTimeFromSeconds(remainingTime);
+		if(data._int == 1) ui.pharmacyText.text = StringSimplifier.GetSortedTimeFromSeconds(remainingTime);
+		if(data._int == 2) ui.iceCreamText.text = StringSimplifier.GetSortedTimeFromSeconds(remainingTime);
+		if(data._int == 3) ui.drinksText.text = StringSimplifier.GetSortedTimeFromSeconds(remainingTime);
+		if (data._int == 4) ui.vaccineText.text = StringSimplifier.GetSortedTimeFromSeconds(remainingTime);
 	}
 	
 	private void OnRefillTimerCompleted(Timer.CustomData data)

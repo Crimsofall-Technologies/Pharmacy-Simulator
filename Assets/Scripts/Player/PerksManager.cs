@@ -27,21 +27,21 @@ public class PerksManager : MonoBehaviour
 	{
 		if(Name == "DOUBLE_TIME") { 
 			DoubleSpeed = true;
-			doubleSpeedText.text = "Time: "+PerkTime+"s";
+			doubleSpeedText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(PerkTime);
 		}
 		if(Name == "DOUBLE_MONEY") { 
 			DoubleMoney = true;
-			moneyText.text = "Time: "+PerkTime+"s";
+			moneyText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(PerkTime);
 		}
 		if(Name == "GUARD") { 
 			GuardActive = true;
-			guardText.text = "Time: "+PerkTime+"s";
+			guardText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(PerkTime);
 
 			GameManager.Instance.shop.SpawnGuard();
 		}
 		if(Name == "HELPER") { 
 			HelperActive = true;
-			helperText.text = "Time: "+PerkTime+"s";
+			helperText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(PerkTime);
 		}
 		
 		//show on UI and activate a timer!
@@ -55,10 +55,10 @@ public class PerksManager : MonoBehaviour
 	}
 
 	private void OnTickAction(Timer.CustomData data, int remiainTime) {
-		if(data._string == "DOUBLE_TIME") doubleSpeedText.text = "Time: "+remiainTime+"s";
-		if(data._string == "DOUBLE_MONEY") moneyText.text = "Time: "+remiainTime+"s";
-		if(data._string == "GUARD") guardText.text = "Time: "+remiainTime+"s";
-		if(data._string == "HELPER") helperText.text = "Time: "+remiainTime+"s";
+		if(data._string == "DOUBLE_TIME") doubleSpeedText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(remiainTime);
+		if(data._string == "DOUBLE_MONEY") moneyText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(remiainTime);
+		if(data._string == "GUARD") guardText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(remiainTime);
+		if(data._string == "HELPER") helperText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(remiainTime);
 	}
 	
 	private void OnTimerComplete(Timer.CustomData data)

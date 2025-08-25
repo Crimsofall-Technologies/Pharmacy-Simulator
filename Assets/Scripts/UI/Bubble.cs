@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Bubble : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-	public Image[] fillImages;
-	public Image[] icons;
+	public Image image;
+	public Image icon;
 	
 	[Space]
 	public Color green;
@@ -22,14 +22,17 @@ public class Bubble : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	private bool cashierBubble, IsThief;
 	private float holdTime;
 
-	public void Init(ShopperType[] _Types, Shopper _shopper, Sprite[] sprites, bool isCashier, bool isThief = false)
+	public void Init(ShopperType[] _Types, Shopper _shopper, Sprite sprite, bool isCashier, bool isThief = false)
 	{
-        for (int i = 0; i < sprites.Length; i++)
+        /*for (int i = 0; i < sprites.Length; i++)
 		{
 			icons[i].sprite = sprites[i];
 			fillImages[i].gameObject.SetActive(true);
 			Fill(0f, 1f, i);
-		}
+		}*/
+
+		icon.sprite = sprite;
+		Fill(0f, 1f, 0);
 
 		rectT = GetComponent<RectTransform>();
 		Type = _Types;
@@ -58,11 +61,14 @@ public class Bubble : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void Fill(float current, float max, int index)
     {
-		if (fillImages.Length == 0)
+		/*if (fillImages.Length == 0)
 			return;
 
         fillImages[index].color = green;
-        fillImages[index].fillAmount = current / max;
+        fillImages[index].fillAmount = current / max;*/
+
+		image.color = green;
+		image.fillAmount = current / max;
     }
 
     public void OnPointerDown(PointerEventData eventData)

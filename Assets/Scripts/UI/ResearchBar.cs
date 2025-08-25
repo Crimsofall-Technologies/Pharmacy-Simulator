@@ -85,6 +85,9 @@ public class ResearchBar : MonoBehaviour
         if (Level > 1)
             time = GameManager.Instance.BaseTime * (Level + 2);
 
+		if(GameManager.Instance.perksManager.DoubleSpeed)
+			time /= 2;
+
         Timer timer = TimerManager.CreateTimer(Name, time, data, true);
 		timer.OnTickAction += OnTick;
 		timer.OnCompleteAction += OnComplete;
@@ -121,10 +124,7 @@ public class ResearchBar : MonoBehaviour
 		//PlayerPrefs.SetInt("RES_"+Name, 1);
 		Researching = false;
 
-		//give EXP
-		GlobalVar.Instance.currentXP ++;
-
-		if(GlobalVar.Instance.currentXP >= GlobalVar.Instance.nextXP)
-			GameManager.Instance.LevelUp();
+		//give EXP (75 per research)
+		GlobalVar.Instance.AddXP(GameManager.Instance.researchXP);
     }
 }

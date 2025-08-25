@@ -8,7 +8,7 @@ public class TimerUI : MonoBehaviour
 	public Image fillImage;
 
 	private CameraType camType;
-	private float maxTime, currentTime;
+	private float maxTime;
 	private CanvasGroup cg;
 
 	private Timer timer;
@@ -23,12 +23,10 @@ public class TimerUI : MonoBehaviour
 		GetComponent<RectTransform>().position = UIManager.Instance.camManager.Camera.WorldToScreenPoint(T.position);
 
 		maxTime = t;
-		currentTime = t;
 	}
 
     public void UpdateSelf(Timer.CustomData data, int t)
 	{
-		currentTime = t;
 		fillImage.fillAmount = (float)t / maxTime;
 	}
 

@@ -6,7 +6,6 @@ public class Warehouse : MonoBehaviour
 	public WarehouseTruck truck;
 	public Playershop shop;
 	public Animator gateAnimator;
-	public int truckTravelDelay = 5; //the time it takes for the truck to arrive at the Store.
 	public CameraManager camManager;
 	
 	[Space]
@@ -35,7 +34,9 @@ public class Warehouse : MonoBehaviour
 		if(setupFillTimes) fillTimes = TimesRefill;
 
 		//each time show the timer on UI for player
-        Timer timer = TimerManager.CreateTimerWithUI("BackRoomsFiller", truckTravelDelay+GameManager.Instance.BaseTime, new Timer.CustomData(), backroomsT, backroomFillSprite);
+		int time = GameManager.Instance.BaseTime;
+		if(GameManager.Instance.perksManager.DoubleSpeed) time /= 2;
+        Timer timer = TimerManager.CreateTimerWithUI("BackRoomsFiller", time, new Timer.CustomData(), backroomsT, backroomFillSprite);
 		
 		if(timer == null)
 			return;

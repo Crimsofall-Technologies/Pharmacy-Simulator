@@ -19,7 +19,20 @@ public class GlobalVar : MonoBehaviour
 	private int nextGems = 0;
 	private float lastTime;
 	
-	public float currentXP, nextXP;
+	public float currentXP { get; private set; }
+    public float  nextXp;
+    
+    public void AddXP(int xp)
+    {
+        if(xp == 0) return;
+
+        currentXP += xp;
+        UIManager.Instance.CreateXpFloat(xp);
+
+        if(currentXP >= nextXp) 
+        GameManager.Instance.LevelUp();
+        UIManager.Instance.UpdateUI();
+    }
 	
 	private void FixedUpdate() 
 	{

@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 80.9, y: -50}
-  m_SizeDelta: {x: 65, y: 65.9323}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &473569332137698556
 CanvasRenderer:
@@ -135,10 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da04a533ab41564098f6ca364ef74d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillImages:
-  - {fileID: 8858574646815787721}
-  icons:
-  - {fileID: 1293462832448558783}
+  image: {fileID: 8858574646815787721}
+  icon: {fileID: 1293462832448558783}
   green: {r: 0.21568628, g: 0.83137256, b: 0.11372549, a: 1}
   red: {r: 0.8301887, g: 0.24054419, b: 0.17621933, a: 1}
 --- !u!225 &8249057084869095422
@@ -185,10 +183,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6485884404156318121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 35}
+  m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3077027298380339677
 CanvasRenderer:
@@ -340,7 +338,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 32.5, y: -22.6}
-  m_SizeDelta: {x: 35, y: 35}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8826693778150031152
 CanvasRenderer:

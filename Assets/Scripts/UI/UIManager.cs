@@ -17,9 +17,12 @@ public class UIManager : MonoBehaviour
 #endregion
 	
 	public Text currencyText, gemsText, backRoomsAmountText, taskText, taskGetUIText, levelXpText;
-	public GameObject bubble3, bubble2, bubble1;
+	public GameObject bubbleObj;
 	public Transform taskParent;
 	public Camera cam;
+
+	public GameObject xpFloat;
+	public Transform floatUIParent;
 	
 	public GameObject pauseMenu, settingMenu, shopScreen, warehouseScreen, perksUI, notEnoughGO, timerUIPrefab, shoppingListUI, taskUI, achieveUI;
 	public GameObject shoppingListUIPrefab;
@@ -69,12 +72,7 @@ public class UIManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.V)) { GlobalVar.Instance.AddGems(100); GlobalVar.Instance.AddCurrency(100); }
 
         if (Input.GetKeyDown(KeyCode.N)) {
-            GlobalVar.Instance.currentXP++;
-
-            if (GlobalVar.Instance.currentXP >= GlobalVar.Instance.nextXP)
-            {
-                GameManager.Instance.LevelUp();
-            }
+            GlobalVar.Instance.AddXP(500);
 			UpdateUI();
         }
     }
@@ -84,7 +82,7 @@ public class UIManager : MonoBehaviour
 		currencyText.text = GlobalVar.Instance.Currency.ToString();
 		gemsText.text = GlobalVar.Instance.Gems.ToString();
         levelXpText.text = "Lv. " + GameManager.Instance.Level;
-        taskText.text = $"XP: {GlobalVar.Instance.currentXP}/{GlobalVar.Instance.nextXP}";
+        taskText.text = $"XP: {GlobalVar.Instance.currentXP}/{GlobalVar.Instance.nextXp}";
 
         //activate stuffs
         float Half = shop.itemsMax * 0.5f;
@@ -141,16 +139,18 @@ public class UIManager : MonoBehaviour
 	{
 		while(true)
 		{
-			yield return new WaitForSeconds(0.005f);
+			yield return new WaitForSeconds(0.002f);
 			if(taskFill.value != GlobalVar.Instance.currentXP)
 			{
 				if(taskFill.value < GlobalVar.Instance.currentXP)
-					taskFill.value += Time.deltaTime * fillSpeed;
+					taskFill.value += 3;
 				else
-					taskFill.value -= Time.deltaTime * fillSpeed;
+					taskFill.value -= 5;
 					
-				if(taskFill.value > GlobalVar.Instance.currentXP) taskFill.value = GlobalVar.Instance.currentXP;
-				if(taskFill.value < 0f) taskFill.value = 0f;
+				if(taskFill.value > GlobalVar.Instance.currentXP) 
+					taskFill.value = GlobalVar.Instance.currentXP;
+				if(taskFill.value < 0f) 
+					taskFill.value = 0f;
 			}
 		}
 	}
@@ -165,33 +165,39 @@ public class UIManager : MonoBehaviour
 	{
 		if (atCashier) 
 		{
-            Bubble b = Instantiate(bubble1, taskParent).GetComponent<Bubble>();
-            b.Init(new ShopperType[0], shopper, new Sprite[1] { moneySpriteIcon }, atCashier);
+            Bubble b = Instantiate(bubbleObj, taskParent).GetComponent<Bubble>();
+            b.Init(new ShopperType[0], shopper, moneySpriteIcon, atCashier);
             shopper.OnBubbleCreated(b);
 			return;
         }
 
         if (isThief)
         {
-            Bubble b = Instantiate(bubble1, taskParent).GetComponent<Bubble>();
-            b.Init(new ShopperType[0], shopper, new Sprite[1] { thiefSpriteIcon }, false, true);
+            Bubble b = Instantiate(bubbleObj, taskParent).GetComponent<Bubble>();
+            b.Init(new ShopperType[0], shopper, thiefSpriteIcon, false, true);
             shopper.OnBubbleCreated(b);
             return;
         }
 
-        GameObject go = bubble1;
+        /*GameObject go = bubble1;
 		if (shopper.Types.Length == 2) go = bubble2;
-		if (shopper.Types.Length == 3) go = bubble3;
+		if (shopper.Types.Length == 3) go = bubble3;*/
 
-		Bubble bubble = Instantiate(go, taskParent).GetComponent<Bubble>();
+		Bubble bubble = Instantiate(bubbleObj, taskParent).GetComponent<Bubble>();
 		bubble.gameObject.SetActive(false);
-		List<Sprite> spr = new List<Sprite>();
+		/*List<Sprite> spr = new List<Sprite>();
 		for (int i = 0; i < shopper.Types.Length; i++)
 		{
 			spr.Add(ShopperTypeSprites[(int)shopper.Types[i]]);
-		}
-		bubble.Init(shopper.Types, shopper, spr.ToArray(), atCashier);
+		}*/
+		bubble.Init(shopper.Types, shopper, ShopperTypeSprites[(int)shopper.Types[shopper.currentIndex]], atCashier);
 		shopper.OnBubbleCreated(bubble);
+	}
+
+	public void CreateXpFloat(int xp) {
+		GameObject g = Instantiate(xpFloat, floatUIParent);
+		g.GetComponent<Text>().text = "+"+xp;
+		Destroy(g, 5f);
 	}
 	
 	public void Resume()

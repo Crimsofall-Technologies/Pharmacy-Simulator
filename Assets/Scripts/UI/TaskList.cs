@@ -134,12 +134,7 @@ public class TaskList : MonoBehaviour
         if (currentTaskGold >= TaskGold) 
         {
             //Completed Task? Gain XP
-            GlobalVar.Instance.currentXP++;
-
-            if (GlobalVar.Instance.currentXP >= GlobalVar.Instance.nextXP)
-            {
-                GameManager.Instance.LevelUp();
-            }
+            GlobalVar.Instance.AddXP(GameManager.Instance.taskXP);
 
             TaskGoldB = false;
             Destroy(currentTaskGO);
@@ -158,12 +153,7 @@ public class TaskList : MonoBehaviour
         if (currentServedNpc >= serveNpcAmount) 
         {
             //Completed Task? Gain XP
-            GlobalVar.Instance.currentXP++;
-
-            if (GlobalVar.Instance.currentXP >= GlobalVar.Instance.nextXP)
-            {
-                GameManager.Instance.LevelUp();
-            }
+            GlobalVar.Instance.AddXP(GameManager.Instance.taskXP);
 
             TaskNpc = false;
             Destroy(currentTaskGO);
@@ -185,12 +175,7 @@ public class TaskList : MonoBehaviour
             if (shopperTypeCurrent >= shopperTypeMax) 
             {
                 //Completed Task? Gain XP
-                GlobalVar.Instance.currentXP++;
-
-                if (GlobalVar.Instance.currentXP >= GlobalVar.Instance.nextXP)
-                {
-                    GameManager.Instance.LevelUp();
-                }
+                GlobalVar.Instance.AddXP(GameManager.Instance.taskXP);
 
                 TaskShop = false;
                 Destroy(currentTaskGO);
@@ -210,12 +195,7 @@ public class TaskList : MonoBehaviour
         if (thiefToCatchCurrent >= thiefToCatchMax)
         {
             //Completed Task? Gain XP
-            GlobalVar.Instance.currentXP++;
-
-            if (GlobalVar.Instance.currentXP >= GlobalVar.Instance.nextXP)
-            {
-                GameManager.Instance.LevelUp();
-            }
+            GlobalVar.Instance.AddXP(GameManager.Instance.taskXP);
 
             TaskThief = false;
             Destroy(currentTaskGO);
