@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
+[DefaultExecutionOrder(0)]
 public class UIManager : MonoBehaviour
 {
 	#region SINGLETON
@@ -48,6 +49,7 @@ public class UIManager : MonoBehaviour
 	[Space]
 	public Sprite gemSprite;
 	public Sprite refillSprite;
+	public TutorialManager tutorialManager;
 	public Image iceCreamIcon, drinksIcon, pharmacyIcon, groceryIcon, vaccineIcon, backRoomIcon;
 
     private List<TimerUI> TimerUIs = new List<TimerUI>();
@@ -72,7 +74,7 @@ public class UIManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.V)) { GlobalVar.Instance.AddGems(100); GlobalVar.Instance.AddCurrency(100); }
 
         if (Input.GetKeyDown(KeyCode.N)) {
-            GlobalVar.Instance.AddXP(500);
+            GlobalVar.Instance.AddXP(100);
 			UpdateUI();
         }
     }
@@ -105,9 +107,9 @@ public class UIManager : MonoBehaviour
         pharmacyIcon.sprite = shop.refillingPharmacy ? gemSprite : refillSprite;
 		backRoomIcon.sprite = shop.refillingBackrooms ? gemSprite : refillSprite;
 
-        if (TutorialManager.Instance.TutorialRunning && !TutorialManager.Instance.d && groceryButton.gameObject.activeSelf)
+        if (tutorialManager.TutorialRunning && !tutorialManager.d && groceryButton.gameObject.activeSelf)
 		{
-			TutorialManager.Instance.OnRefillRegionShow();
+			tutorialManager.OnRefillRegionShow();
 		}
 
         pharmacyText.gameObject.SetActive(shop.pharmacyAmount <= 0);
@@ -122,9 +124,9 @@ public class UIManager : MonoBehaviour
 		backRoomsFill.UpdateSelf((float)shop.backRoomsAmount, (float)shop.maxBackroomsAmount);
 		backRoomsButton.gameObject.SetActive(shop.backRoomsAmount <= 0 && !shop.refillingBackrooms);
 
-        if (TutorialManager.Instance.TutorialRunning && !TutorialManager.Instance.i && backRoomsButton.gameObject.activeSelf)
+        if (tutorialManager.TutorialRunning && !tutorialManager.i && backRoomsButton.gameObject.activeSelf)
         {
-            TutorialManager.Instance.OnRefillRegionBackrooms();
+            tutorialManager.OnRefillRegionBackrooms();
         }
 
         //update areas
@@ -143,9 +145,9 @@ public class UIManager : MonoBehaviour
 			if(taskFill.value != GlobalVar.Instance.currentXP)
 			{
 				if(taskFill.value < GlobalVar.Instance.currentXP)
-					taskFill.value += 3;
+					taskFill.value += 5;
 				else
-					taskFill.value -= 5;
+					taskFill.value -= 10;
 					
 				if(taskFill.value > GlobalVar.Instance.currentXP) 
 					taskFill.value = GlobalVar.Instance.currentXP;
@@ -328,7 +330,7 @@ public class UIManager : MonoBehaviour
         achieveCompleteUI.SetActive(true);
         achieveCompAnimator.SetBool("Open", true);
 
-		achieveCompText.text = "You have completed:\n"+achieveName+"!";
+		achieveCompText.text = "You unlocked achivement:\n"+achieveName+"!";
     }
 
     public void CloseAchieveUI()

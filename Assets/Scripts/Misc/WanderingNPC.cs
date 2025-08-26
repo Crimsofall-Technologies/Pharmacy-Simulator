@@ -25,7 +25,7 @@ public class WanderingNPC : MonoBehaviour
         animator.SetBool("walk", agent.velocity.magnitude > 0);
 
         //just for moving from one place to other and standing?
-        if (wanderPoints.Length > 1) 
+        if (wanderPoints.Length == 1) 
         {
             agent.SetDestination(wanderPoints[0].position);
             return;

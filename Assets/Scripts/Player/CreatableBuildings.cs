@@ -11,6 +11,7 @@ public class CreatableBuildings : MonoBehaviour
 		public GameObject Ground;
 		public int Cost, Time;
 		public GameObject UIButton;
+		public Text text, costText, levelText;
 		public GameObject[] BuildingUpgrades; //number of upgrades to this building?
 		public CameraType cameraType = CameraType.Shop;
 		public ShopperType shopperType = ShopperType.None;
@@ -35,7 +36,7 @@ public class CreatableBuildings : MonoBehaviour
 			if(Buildings[i].Ground != null) Buildings[i].Ground.SetActive(true);
 			Buildings[i].UIButton.SetActive(true);
 			SetBuildingParts(false, Buildings[i].BuildingUpgrades);
-			Buildings[i].normalText = Buildings[i].UIButton.transform.GetChild(1).GetComponent<Text>().text;
+			Buildings[i].normalText = Buildings[i].text.text;
 			Buildings[i].UpgradesDone=0;
 			Buildings[i].IsBuilt = false;
 			Buildings[i].IsBuilding = false;
@@ -48,7 +49,7 @@ public class CreatableBuildings : MonoBehaviour
                 }
             }
 
-            Buildings[i].UIButton.transform.GetChild(3).GetComponent<Text>().text = "Cost: " + Buildings[i].Cost;
+            Buildings[i].costText.text = "Cost: " + Buildings[i].Cost;
         }
 	}
 	
@@ -64,26 +65,26 @@ public class CreatableBuildings : MonoBehaviour
 			else if (Buildings[i].myParentUpgradeable == null)
 			{
 				Buildings[i].UIButton.GetComponent<Button>().interactable = Buildings[i].Level <= GameManager.Instance.Level;
-				Buildings[i].UIButton.transform.GetChild(2).gameObject.SetActive(Buildings[i].Level > GameManager.Instance.Level);
-				Buildings[i].UIButton.transform.GetChild(2).GetComponentInChildren<Text>().text = Buildings[i].Level.ToString();
+				Buildings[i].levelText.transform.parent.gameObject.SetActive(Buildings[i].Level > GameManager.Instance.Level);
+				Buildings[i].levelText.text = Buildings[i].Level.ToString();
 			}
 			else if (Buildings[i].myParentUpgradeable.activeSelf)
 			{
 				Buildings[i].UIButton.GetComponent<Button>().interactable = Buildings[i].Level <= GameManager.Instance.Level;
-				Buildings[i].UIButton.transform.GetChild(2).gameObject.SetActive(Buildings[i].Level > GameManager.Instance.Level);
-				Buildings[i].UIButton.transform.GetChild(2).GetComponentInChildren<Text>().text = Buildings[i].Level.ToString();
+				Buildings[i].levelText.transform.parent.gameObject.SetActive(Buildings[i].Level > GameManager.Instance.Level);
+				Buildings[i].levelText.text = Buildings[i].Level.ToString();
 			}
 			else 
 			{
                 //locked.
                 Buildings[i].UIButton.GetComponent<Button>().interactable = false;
-                Buildings[i].UIButton.transform.GetChild(2).gameObject.SetActive(true);
+                Buildings[i].levelText.transform.parent.gameObject.SetActive(true);
 
                 //show no text since player may be above level (or not)
 				if(Buildings[i].Level <= GameManager.Instance.Level)
-					Buildings[i].UIButton.transform.GetChild(2).GetComponentInChildren<Text>().text = ""; 
+					Buildings[i].levelText.text = ""; 
 				else
-                    Buildings[i].UIButton.transform.GetChild(2).GetComponentInChildren<Text>().text = Buildings[i].Level.ToString();
+                    Buildings[i].levelText.text = Buildings[i].Level.ToString();
             }
         }
 	}
@@ -138,10 +139,10 @@ public class CreatableBuildings : MonoBehaviour
 				Buildings[i].IsBuilding = true;
 
                 //disable buttons when presses automatically!
-                if (Buildings[i].UpgradesDone < Buildings[i].BuildingUpgrades.Length)
+                if (Buildings[i].BuildingUpgrades.Length > 1 && Buildings[i].UpgradesDone < Buildings[i].BuildingUpgrades.Length)
                 {
                     string t = Buildings[i].normalText;
-                    Buildings[i].UIButton.transform.GetChild(1).GetComponent<Text>().text = t.Replace("Build", "Upgrade") + (Buildings[i].UpgradesDone > 0 ? $"(LVL: {Buildings[i].UpgradesDone})" : "");
+                    Buildings[i].text.text = t.Replace("Build", "Upgrade") + (Buildings[i].UpgradesDone > 0 ? $"(LVL: {Buildings[i].UpgradesDone})" : "");
                 }
                 else
                 {
@@ -173,7 +174,7 @@ public class CreatableBuildings : MonoBehaviour
                 if (Buildings[i].UpgradesDone < Buildings[i].BuildingUpgrades.Length)
 				{
 					string t = Buildings[i].normalText;
-					Buildings[i].UIButton.transform.GetChild(1).GetComponent<Text>().text = t.Replace("Build", "Upgrade") + $" [LVL: {Buildings[i].UpgradesDone}]";
+					Buildings[i].text.text = t.Replace("Build", "Upgrade") + $" [LVL: {Buildings[i].UpgradesDone}]";
 				}
 				else
 				{
@@ -189,6 +190,15 @@ public class CreatableBuildings : MonoBehaviour
 
 				//give water
 				if (Buildings[i].shopperType == ShopperType.Drinks) { shop.ResearchedItem("Water Cola"); }
+
+				//give covid vaccination
+				if (Buildings[i].shopperType == ShopperType.Consultation) { shop.ResearchedItem("Covid Vaccine"); }
+
+				//give pain medicene, allergy medicene
+				if (Buildings[i].shopperType == ShopperType.Pharmacy) { 
+					shop.ResearchedItem("Pain Medicine"); 
+					shop.ResearchedItem("Allergy Medicine");
+				}
 
 				//for tutorials
 				if (TutorialManager.Instance.TutorialRunning)

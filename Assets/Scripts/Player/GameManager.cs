@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
 	public int BaseTime = 120; //this will be added everywhere!
 
 	public int researchXP = 75, taskXP = 50, shopperXp = 10;
+	public float levelExponent = 1f;
 	
 	[Space]
 	public Playershop shop;
@@ -73,9 +74,10 @@ public class GameManager : MonoBehaviour
 	public void LevelUp()
 	{
 		Level++;
-		shop.TryUnlockShopAreas();
 
-		GlobalVar.Instance.nextXp = Level * 500; //increase 500 XP per level!
+		//GlobalVar.Instance.nextXp = 500 * (1.1f * Level);
+		float xp = 500 * Mathf.Exp(levelExponent * Level);
+		GlobalVar.Instance.nextXp = Mathf.Round(xp / 100f) * 100.0f;
 		Invoke(nameof(NextLevelUp), 1f);
 
 		//achievements!

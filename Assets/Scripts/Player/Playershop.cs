@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
 using Random = UnityEngine.Random;
 
+[DefaultExecutionOrder(1)]
 public class Playershop : MonoBehaviour
 {
 	[System.Serializable]
@@ -92,18 +92,6 @@ public class Playershop : MonoBehaviour
 	
 	public int groceriesAmount, pharmacyAmount, iceCreamAmount, drinksAmount, backRoomsAmount, vaccineAmount;
 	public bool refillingPharmacy, refillingGroceries, refillingIceCream, refillingDrinks, refillingBackrooms, refillingVaccines;
-
-	[Space, Header("Unlockable Areas:")]
-	public GameObject[] PharmacyAreasToDisable;
-    public GameObject[] PharmacyAreasToEnable;
-	public int pharmacyUnlockLevel = 2;
-	public bool IsPharmacyUnlocked = false;
-
-    [Space]
-    public GameObject[] consultationAreasToDisable;
-    public GameObject[] consultationAreasToEnable;
-    public int consultationUnlockLevel = 5;
-	public bool IsConsultationUnlocked = false;
 	public bool HasGuard=false;
 
     public int maxBackroomsAmount { get; set; }
@@ -126,14 +114,6 @@ public class Playershop : MonoBehaviour
 			shopPositions[i].Init();
 		}
 	}
-
-	private void Update() 
-	{
-		if (Input.GetKeyDown(KeyCode.P)) 
-		{
-			UnlockPharmacy();
-        }
-    }
 
 	private GameObject GuardObject;
 
@@ -292,14 +272,14 @@ public class Playershop : MonoBehaviour
 		}
 
 		//65% chance to get a medicine!
-		if (Random.value <= 0.65f && pharmacyAmount > 0 && IsPharmacyUnlocked && shopperTypes.Count < 3) 
+		if (Random.value <= 0.65f && pharmacyAmount > 0 && creatableBuilding.IsActive(ShopperType.Pharmacy) && shopperTypes.Count < 3) 
 		{
             if (shopPositions[2].GetNPCPosition() != null)
                 shopperTypes.Add(ShopperType.Pharmacy);
         }
 
         //25% chance to get a vaccine!
-        if (Random.value <= 0.25f && vaccineAmount > 0 && IsConsultationUnlocked && shopperTypes.Count < 3)
+        if (Random.value <= 0.25f && vaccineAmount > 0 && creatableBuilding.IsActive(ShopperType.Consultation) && shopperTypes.Count < 3)
         {
             if (shopPositions[3].GetNPCPosition() != null)
                 shopperTypes.Add(ShopperType.Consultation);
@@ -382,38 +362,4 @@ public class Playershop : MonoBehaviour
             backRoomsAmount = maxBackroomsAmount; //clamp.
         UIManager.Instance.UpdateUI();
 	}
-
-	public void TryUnlockShopAreas() 
-	{
-		if (GameManager.Instance.Level >= pharmacyUnlockLevel) 
-		{
-			UnlockPharmacy();
-        }
-
-        if (GameManager.Instance.Level >= consultationUnlockLevel)
-        {
-			UnlockVaccine();
-        }
-    }
-
-	private void UnlockPharmacy() 
-	{
-        IsPharmacyUnlocked = true;
-        for (int i = 0; i < PharmacyAreasToDisable.Length; i++) PharmacyAreasToDisable[i].SetActive(false);
-        for (int i = 0; i < PharmacyAreasToEnable.Length; i++) PharmacyAreasToEnable[i].SetActive(true);
-
-		//default items:
-		ResearchedItem("Pain Medicine");
-		ResearchedItem("Allergy Medicine");
-    }
-
-	private void UnlockVaccine() 
-	{
-        IsConsultationUnlocked = true;
-        for (int i = 0; i < consultationAreasToDisable.Length; i++) consultationAreasToDisable[i].SetActive(false);
-        for (int i = 0; i < consultationAreasToEnable.Length; i++) consultationAreasToEnable[i].SetActive(true);
-
-        //default items:
-        ResearchedItem("Covid Vaccine");
-    }
 }

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
+[DefaultExecutionOrder(0)]
 public class TutorialManager : MonoBehaviour
 {
 	#region Singleton
