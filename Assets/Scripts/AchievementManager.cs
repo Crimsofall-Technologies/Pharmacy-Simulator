@@ -5,7 +5,7 @@ using UnityEngine;
 public class AchievementManager : MonoBehaviour
 {
     public Transform achieveList;
-    private AchieveUIO[] achievementUIOS;
+    public AchieveUIO[] achievementUIOS { get; private set; }
 
     private void Start()
     {

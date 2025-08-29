@@ -47,6 +47,12 @@ public class Timer : MonoBehaviour
 		TimerManager.RemoveTimer(myID); //it will destroy this object automatically
 	}
 
+	public void SkipTimeTo(int time)
+	{
+		remainingTime = time;
+		OnTickAction?.Invoke(data, remainingTime);
+	}
+
 	public void OverrideComplete() 
 	{
 		remainingTime = 0;

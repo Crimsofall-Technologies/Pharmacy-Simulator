@@ -34,6 +34,11 @@ public class TitleScreen : MonoBehaviour
 		achieveAnimator.SetBool("Open", true);
 	}
 
+	public void RemoveSaves()
+	{
+		DataSerializer.DeleteSaves();
+	}
+
 	public void CloseAchievements() 
 	{
         achieveAnimator.SetBool("Open", false);

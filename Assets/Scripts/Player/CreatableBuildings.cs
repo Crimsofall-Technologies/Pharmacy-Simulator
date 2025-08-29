@@ -53,6 +53,52 @@ public class CreatableBuildings : MonoBehaviour
         }
 	}
 	
+	public void OnLoad(int i, int remainTime, int updateIndex, bool complete)
+	{
+		if(complete)
+		{
+			BuildingComplete(Buildings[i].Name);
+			return;
+		}
+
+		if(remainTime <= 0) return;
+
+		Timer.CustomData data = new Timer.CustomData() { _string = Buildings[i].Name };
+
+				//time will be 120s x 4 = 480s at level 2, 120 x 5 = 600s at level 3
+				int time = GameManager.Instance.BaseTime;
+				if (Buildings[i].Level > 1)
+					time = GameManager.Instance.BaseTime * (Buildings[i].Level + 2);
+
+				//make the time half if double timer is on
+				if(GameManager.Instance.perksManager.DoubleSpeed)
+					time /= 2;
+                
+				Timer timer = TimerManager.CreateTimerWithUI(Buildings[i].Name, time, data, Buildings[i].Ground.transform);
+				timer.OnCompleteAction += OnRealBuildComplete;
+				Buildings[i].IsBuilding = true;
+				timer.SkipTimeTo(remainTime);
+
+				Buildings[i].UpgradesDone = updateIndex;
+				if(Buildings[i].BuildingUpgrades.Length > 1 && updateIndex - 1 >= 0) {
+				for (int j = 0; j < Buildings[i].BuildingUpgrades.Length; j++)
+				{
+					Buildings[i].BuildingUpgrades[Buildings[i].UpgradesDone - 1].SetActive(true);
+				}
+				}
+
+                //disable buttons when presses automatically!
+                if (Buildings[i].BuildingUpgrades.Length > 1 && Buildings[i].UpgradesDone < Buildings[i].BuildingUpgrades.Length)
+                {
+                    string t = Buildings[i].normalText;
+                    Buildings[i].text.text = t.Replace("Build", "Upgrade") + (Buildings[i].UpgradesDone > 0 ? $"(LVL: {Buildings[i].UpgradesDone})" : "");
+                }
+                else
+                {
+                    Buildings[i].UIButton.SetActive(false);
+                }
+	}
+
 	public void UpdateUI()
 	{
 		for (int i = 0; i < Buildings.Length; i++) 
@@ -155,8 +201,13 @@ public class CreatableBuildings : MonoBehaviour
 	
 	public void OnRealBuildComplete(Timer.CustomData data)
 	{
+		BuildingComplete(data._string);
+	}
+
+	private void BuildingComplete(string Name)
+	{
 		for (int i = 0; i < Buildings.Length; i++) {
-			if (data._string == Buildings[i].Name)
+			if (Name == Buildings[i].Name)
 			{
 				Buildings[i].IsBuilt = true;
 				Buildings[i].IsBuilding = false;

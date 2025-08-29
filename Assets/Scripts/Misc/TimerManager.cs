@@ -56,4 +56,12 @@ public static class TimerManager
 		else
 			return null;
     }
+
+	public static int GetRemainingTime(string Id)
+	{
+		if (RunningTimers.ContainsKey(Id))
+			return RunningTimers[Id].remainingTime;
+		else
+			return 0;
+	}
 }

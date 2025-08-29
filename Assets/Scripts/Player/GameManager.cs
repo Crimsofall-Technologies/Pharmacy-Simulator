@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 		Application.targetFrameRate = targetFPS;
 		Time.timeScale = timeScale;
 		
-		GlobalVar.Instance.nextXp = 500;
+		GlobalVar.Instance.nextXp = 250;
 
 		if (DebugTime) 
 			BaseTime = 5; //for testing game it should be very small delays
@@ -46,24 +46,37 @@ public class GameManager : MonoBehaviour
 	public UIManager ui;
 	public PerksManager perksManager;
 	public NPCSpawner npcSpawner;
+	public CreatableBuildings creatableBuildings;
 
 	public Sprite lockSprite, searchSprite;
+
+	public ResearchBar[] ResearchBars;
 	
 	[Space]
 	public int maxBoxes = 64;
 	public int Level = 1;
+
+	private PlayerData cachedPlayerData;
 	
 	private IEnumerator Start()
 	{
-		yield return new WaitForSeconds(.25f);
+		yield return new WaitForSecondsRealtime(.25f);
 		TutorialManager.Instance.OnGameStart();
 
         ui.taskFill.minValue = GlobalVar.Instance.currentXP;
         ui.taskFill.maxValue = GlobalVar.Instance.nextXp;
+
+        yield return new WaitForSecondsRealtime(0.5f);
+		LoadPlayer();
     }
-	
-	//this calculates and removes X number of boxes from shop!
-	public int GetNumberOfBoxesPerShopper()
+
+    private void OnApplicationQuit()
+    {
+        SavePlayer();
+    }
+
+    //this calculates and removes X number of boxes from shop!
+    public int GetNumberOfBoxesPerShopper()
 	{
 		int n = Mathf.RoundToInt((float)maxBoxes / (float)shop.itemsMax);
 		if(n <= 0) 
@@ -76,7 +89,7 @@ public class GameManager : MonoBehaviour
 		Level++;
 
 		//GlobalVar.Instance.nextXp = 500 * (1.1f * Level);
-		float xp = 500 * Mathf.Exp(levelExponent * Level);
+		float xp = 300 * Mathf.Exp(levelExponent * Level);
 		GlobalVar.Instance.nextXp = Mathf.Round(xp / 100f) * 100.0f;
 		Invoke(nameof(NextLevelUp), 1f);
 
@@ -214,5 +227,109 @@ public class GameManager : MonoBehaviour
 	{
 		lastShopperIndex++;
 		return lastShopperIndex;
+	}
+
+	public void SavePlayer()
+	{
+		PlayerData data = new PlayerData()
+		{
+			remainVaccine = shop.vaccineAmount, 
+			remainBackrooms = shop.backRoomsAmount, 
+			remainIcecream = shop.iceCreamAmount, 
+			remainGroceries = shop.groceriesAmount,
+			remainPharmacy = shop.pharmacyAmount,
+			remainDrinks = shop.drinksAmount,
+
+			remainDoubleTime = TimerManager.GetRemainingTime("DOUBLE_TIME"),
+			remainDoubleMoney = TimerManager.GetRemainingTime("DOUBLE_MONEY"),
+			remainGuard = TimerManager.GetRemainingTime("GUARD"),
+			remainHelper = TimerManager.GetRemainingTime("HELPER"),
+
+			currentXp = (int)GlobalVar.Instance.currentXP,
+			maxXp = (int)GlobalVar.Instance.nextXp,
+			lastXp = (int)ui.taskFill.minValue,
+			Level = Level,
+			Cash = GlobalVar.Instance.Currency,
+			Gems = GlobalVar.Instance.Gems,
+		};
+
+		data.AchivementsCollected = new bool[ui.achievementManager.achievementUIOS.Length];
+		data.AchivementsProgress = new int[ui.achievementManager.achievementUIOS.Length];
+		for(int i = 0; i < data.AchivementsCollected.Length;i++)
+		{
+			data.AchivementsCollected[i] = ui.achievementManager.achievementUIOS[i].Collected;
+			data.AchivementsProgress[i] = ui.achievementManager.achievementUIOS[i].currentValue;
+		}
+
+		data.ResearchesComplete = new bool[ResearchBars.Length];
+		data.researchRemainTimes = new float[ResearchBars.Length];
+		for(int i = 0; i < data.researchRemainTimes.Length;i++)
+		{
+			data.ResearchesComplete[i] = ResearchBars[i].ResearchComplete;
+
+			if(ResearchBars[i].Researching)
+				data.researchRemainTimes[i] = ResearchBars[i].myTimer.remainingTime;
+		}
+
+		data.CompletedBuildings = new bool[creatableBuildings.Buildings.Length];
+		data.BuildingUpdateIndexes = new int[creatableBuildings.Buildings.Length];
+		data.BuildingRemainTime = new float[creatableBuildings.Buildings.Length];
+		for(int i = 0; i < data.BuildingUpdateIndexes.Length;i++)
+		{
+			data.CompletedBuildings[i] = creatableBuildings.Buildings[i].IsBuilt;
+			data.BuildingUpdateIndexes[i] = creatableBuildings.Buildings[i].UpgradesDone;
+			
+			if(creatableBuildings.Buildings[i].IsBuilding)
+				data.BuildingRemainTime[i] = TimerManager.GetRemainingTime(creatableBuildings.Buildings[i].Name);
+		}
+
+		DataSerializer.SavePlayer(data);
+	}
+
+	public void LoadPlayer()
+	{
+		cachedPlayerData = DataSerializer.LoadData();
+
+		if(cachedPlayerData == null)
+			return;
+
+		shop.vaccineAmount = cachedPlayerData.remainVaccine; 
+		shop.backRoomsAmount= cachedPlayerData.remainBackrooms; 
+		shop.iceCreamAmount= cachedPlayerData.remainIcecream; 
+		shop.groceriesAmount= cachedPlayerData.remainGroceries;
+		shop.pharmacyAmount= cachedPlayerData.remainPharmacy;
+		shop.drinksAmount= cachedPlayerData.remainVaccine;
+
+		GlobalVar.Instance.SetCurrency(cachedPlayerData.Cash);
+		GlobalVar.Instance.SetGems(cachedPlayerData.Gems);
+
+		shop.shopCrate.RemoveBoxes((shop.itemsMax - cachedPlayerData.remainGroceries) * GetNumberOfBoxesPerShopper());
+
+		perksManager.OnLoad(cachedPlayerData);
+
+		GlobalVar.Instance.nextXp = cachedPlayerData.maxXp;
+		GlobalVar.Instance.SetXp(cachedPlayerData.currentXp);
+		ui.taskFill.value = cachedPlayerData.currentXp;
+		ui.taskFill.minValue = cachedPlayerData.lastXp;
+        ui.taskFill.maxValue = GlobalVar.Instance.nextXp;
+		
+		Level = cachedPlayerData.Level;
+
+		for(int i = 0; i < ui.achievementManager.achievementUIOS.Length;i++)
+		{
+			ui.achievementManager.achievementUIOS[i].UpdateSelf(cachedPlayerData.AchivementsCollected[i], cachedPlayerData.AchivementsProgress[i]);
+		}
+
+		for(int i = 0; i < ResearchBars.Length; i++)
+		{
+			ResearchBars[i].OnLoaded(cachedPlayerData.ResearchesComplete[i], (int)cachedPlayerData.researchRemainTimes[i]);
+		}
+
+		for(int i = 0; i < creatableBuildings.Buildings.Length; i++)
+		{
+			creatableBuildings.OnLoad(i, (int)cachedPlayerData.BuildingRemainTime[i], cachedPlayerData.BuildingUpdateIndexes[i], cachedPlayerData.CompletedBuildings[i]);
+		}
+
+		ui.UpdateUI();
 	}
 }

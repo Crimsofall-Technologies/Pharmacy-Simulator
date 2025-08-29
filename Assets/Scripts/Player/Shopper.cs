@@ -65,8 +65,10 @@ public class Shopper : MonoBehaviour
 		if(!IsThief)
 			//orderCompleteTimeLeft = orderCompleteDelay * (GameManager.Instance.perksManager.DoubleSpeed ? 0.5f:1f);
 			orderCompleteTimeLeft = orderCompleteDelay;
-		else //faster time for catching thieves:
+		else { //faster time for catching thieves:
+			orderCompleteDelay = 2f;
 			orderCompleteTimeLeft = 2f;
+		}
 	}
 	
 	private void Delayed_CompletedOrder()

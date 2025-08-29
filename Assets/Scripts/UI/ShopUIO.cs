@@ -5,7 +5,6 @@ public class ShopUIO : MonoBehaviour
 {
     public string ID = ""; //shop item ID
     public int Cost = 10; //in gems
-    public int PerkTime = 600; //10 minutes
 
     [Space]
     public Text costText;
@@ -19,7 +18,7 @@ public class ShopUIO : MonoBehaviour
     {
         if (GlobalVar.Instance.RemoveGems(Cost))
         {
-            GameManager.Instance.perksManager.ActivatePerk(ID, PerkTime);
+            GameManager.Instance.perksManager.ActivatePerk(ID);
         }
         else 
         {

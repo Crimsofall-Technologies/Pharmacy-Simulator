@@ -6,14 +6,28 @@ using UnityEngine.UI;
 public class AchieveUIO : MonoBehaviour
 {
     public int MaxValue = 100;
+    public int currentValue=0;
     public int gemsReward = 10;
 
     private Text titleText;
     private Slider bar;
     private Button button;
     public bool IsComplete { get; private set; }
+    public bool Collected { get; private set; }
 
     private string baseText;
+
+    public void UpdateSelf(bool collected, int progress)
+    {
+        Collected = collected;
+        currentValue = progress;
+
+        if(progress >= MaxValue) 
+            IsComplete = true;
+
+        button.gameObject.SetActive(!Collected);
+        bar.value = progress;
+    }
 
     public void TryLoad() 
     {
@@ -24,13 +38,11 @@ public class AchieveUIO : MonoBehaviour
         button.gameObject.SetActive(false);
 
         baseText = titleText.text;
-
-        int value = PlayerPrefs.GetInt(transform.name, 0);
-        if (value < MaxValue) //means this is not yet complete!
+        if (currentValue < MaxValue) //means this is not yet complete!
         {
             bar.maxValue = MaxValue;
             bar.minValue = 0;
-            bar.value = value;
+            bar.value = currentValue;
 
             titleText.text = baseText + " - [In Progress]";
             transform.SetAsFirstSibling(); //make completed achievements at bottom
@@ -41,22 +53,18 @@ public class AchieveUIO : MonoBehaviour
             IsComplete = true;
             titleText.text = baseText + $" - [Complete] (+{gemsReward}Gems)";
             transform.SetAsLastSibling(); //make completed achievements at bottom
-
-            //complete but player has not collected reward yet?
-            if (PlayerPrefs.GetInt("", 0) == 0) 
-            {
-                button.gameObject.SetActive(true);
-            }
         }
     }
 
     public void ProgressAchievement(int amount)
     {
-        int value = PlayerPrefs.GetInt(transform.name, 0);
-        value+=amount;
-        bar.value = value;
+        if(IsComplete)
+            return;
 
-        if (value >= MaxValue) 
+        currentValue += amount;
+        bar.value = currentValue;
+
+        if (currentValue >= MaxValue) 
         {
             Debug.Log("Completed achivement: " + titleText);
             transform.SetAsLastSibling(); //complete? set as last and let player view uncomplete achievements first!
@@ -74,14 +82,12 @@ public class AchieveUIO : MonoBehaviour
             }
             IsComplete = true;
         }
-
-        PlayerPrefs.SetInt(transform.name, value);
     }
 
     public void CollectGems() 
     {
-        PlayerPrefs.SetInt(transform.name + "-comp", 1);
         GlobalVar.Instance.AddGems(gemsReward);
         button.gameObject.SetActive(false);
+        Collected = true;
     }
 }

@@ -30,8 +30,13 @@ public class GlobalVar : MonoBehaviour
         UIManager.Instance.CreateXpFloat(xp);
 
         if(currentXP >= nextXp) 
-        GameManager.Instance.LevelUp();
+            GameManager.Instance.LevelUp();
         UIManager.Instance.UpdateUI();
+    }
+
+    public void SetXp(int xp) { 
+        currentXP = xp; 
+        UIManager.Instance.UpdateUI(); 
     }
 	
 	private void FixedUpdate() 

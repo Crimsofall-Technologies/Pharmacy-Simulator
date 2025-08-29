@@ -6,7 +6,10 @@ public class PerksManager : MonoBehaviour
 	public bool DoubleSpeed, DoubleMoney, GuardActive, HelperActive;
 
 	public Text doubleSpeedText, moneyText, helperText, guardText;
+	public int PerkTime;
 	
+	public ShopUIO shopUIO;
+
 	public Button[] Buttons;
 	
 	public void UpdateButtons()
@@ -22,9 +25,25 @@ public class PerksManager : MonoBehaviour
 		guardText.transform.parent.gameObject.SetActive(GuardActive);
 		helperText.transform.parent.gameObject.SetActive(HelperActive);
 	}
-	
-	public void ActivatePerk(string Name, int PerkTime)
+
+    public void OnLoad(PlayerData data)
+    {
+		ActivatePerk("DOUBLE_TIME", data.remainDoubleTime > 0 ? PerkTime : 0, (int)data.remainDoubleTime);
+		ActivatePerk("DOUBLE_MONEY", data.remainDoubleMoney > 0 ? PerkTime : 0, (int)data.remainDoubleMoney);
+		ActivatePerk("GUARD", data.remainGuard > 0 ? PerkTime : 0, (int)data.remainGuard);
+		ActivatePerk("HELPER", data.remainHelper > 0 ? PerkTime : 0, (int)data.remainHelper);
+    }
+
+	public void ActivatePerk(string Name)
 	{
+		ActivatePerk(Name, PerkTime);
+	}
+
+    public void ActivatePerk(string Name, int PerkTime, int remainTime = 0)
+	{
+		if(PerkTime <= 0)
+			return;
+
 		if(Name == "DOUBLE_TIME") { 
 			DoubleSpeed = true;
 			doubleSpeedText.text = "Time: "+StringSimplifier.GetSortedTimeFromSeconds(PerkTime);
@@ -49,7 +68,9 @@ public class PerksManager : MonoBehaviour
 		timer.OnCompleteAction += OnTimerComplete;
 		timer.OnTickAction += OnTickAction;
 		
-		Debug.Log("Activated Perk: " + Name);
+		if(remainTime > 0)
+			timer.SkipTimeTo(remainTime);
+		
 		UpdateButtons();
 		UIManager.Instance.ClosePerkUI();
 	}
