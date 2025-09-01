@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
 #endregion
 	
-	public Text currencyText, gemsText, backRoomsAmountText, taskText, taskGetUIText, levelXpText;
+	public Text currencyText, gemsText, backRoomsAmountText, taskText, taskGetUIText, levelXpText, buyWithGemsText;
 	public GameObject bubbleObj;
 	public Transform taskParent;
 	public Camera cam;
@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 	public Transform floatUIParent;
 	
 	public GameObject pauseMenu, settingMenu, shopScreen, warehouseScreen, perksUI, notEnoughGO, timerUIPrefab, shoppingListUI, taskUI, achieveUI;
-	public GameObject shoppingListUIPrefab;
+	public GameObject shoppingListUIPrefab, newResearch, newBuild;
 	public Transform timerUIArea, shoppingList;
 	public Animator pauseMenuAnimator, settingAnimator, emptyAnimator, shopAnimator, backRoomFillAnimator, levelUpAnimator, perksAnimator, buildAnimator, notEnoughAnimator, shoppingListAnimator;
 	public Animator researchUIAnimator, taskAnimator, achieveAnimator, achieveCompAnimator, timerBuyAnimator;
@@ -63,7 +63,9 @@ public class UIManager : MonoBehaviour
 		drinksText.text = "";
 
 		researchBars = researchUI.GetComponentsInChildren<ResearchBar>(true);
-		
+		newResearch.SetActive(false);
+		newBuild.SetActive(false);
+
 		UpdateUI();
 		StartCoroutine(UpdateBarsSmoothly());
 	}
@@ -281,6 +283,7 @@ public class UIManager : MonoBehaviour
 		buildGO.SetActive(true);
 		buildAnimator.SetBool("Open", true);
 
+		newBuild.SetActive(false);
 		shop.creatableBuilding.UpdateUI();
 	}
 	
@@ -291,18 +294,28 @@ public class UIManager : MonoBehaviour
 	}
 
 	private Timer timer;
-	public void OpenTimerBuyUI(Timer time) 
+	private int constantGemsAmount;
+	public void OpenTimerBuyUI(Timer _timer, int _constantGemsAmount = 0) 
 	{
 		Time.timeScale = 0f; //pause.
-		timer = time;
-		timerBuyText.text = "Cost: "+Mathf.RoundToInt(timer.remainingTime * 1.5f) + "";
+		timer = _timer;
+		constantGemsAmount = _constantGemsAmount;
+
+		if(constantGemsAmount <= 0)
+			timerBuyText.text = "Cost: "+Mathf.RoundToInt(timer.remainingTime * 1.5f) + "";
+		else
+			timerBuyText.text = "Cost: "+constantGemsAmount + "";
 		timerBuyUI.SetActive(true);
 		timerBuyAnimator.SetBool("Open", true);
 	}
 
 	public void BuyAndCompleteTimer()
 	{
-		int cost = Mathf.RoundToInt(timer.remainingTime * 1.5f);
+		int cost;
+		if(constantGemsAmount <= 0)
+			cost = Mathf.RoundToInt(timer.remainingTime * 1.5f);
+		else
+			cost = constantGemsAmount;
 		if (GlobalVar.Instance.RemoveGems(cost))
 		{
 			timer.OverrideComplete();
@@ -311,7 +324,8 @@ public class UIManager : MonoBehaviour
 		}
 		else 
 		{
-			OpenNotEnoughUI();
+			OpenShopUI();
+			//OpenNotEnoughUI();
 		}
 
 		UpdateUI();
@@ -433,15 +447,28 @@ public class UIManager : MonoBehaviour
 		StartCoroutine(DelayedCloseUI(perksUI));
 	}
 
-	public void OpenNotEnoughUI() 
+	private string NotEnoughID = "";
+	private int buyWithGemsCost = 0;
+	public void OpenNotEnoughUI(string type, int originalCost) 
 	{
+		NotEnoughID = type;
+
         Time.timeScale = 0f;
         notEnoughGO.SetActive(true);
         notEnoughAnimator.SetBool("Open", true);
+
+		//pre-calculate cost in gems!
+		if(originalCost > 0)
+		{
+			buyWithGemsCost = Mathf.RoundToInt(originalCost * 0.75f);
+			buyWithGemsText.text = "Buy with " + buyWithGemsCost + " Gems!";
+		}
     }
 
 	public void CloseNotEnoughUI()
 	{
+		buyWithGemsCost = 0;
+		NotEnoughID = "";
 		notEnoughAnimator.SetBool("Open", false);
 		StartCoroutine(DelayedCloseUI(notEnoughGO));
 	}
@@ -451,6 +478,7 @@ public class UIManager : MonoBehaviour
 		Time.timeScale = 0f;
 		researchUI.SetActive(true);
 		researchUIAnimator.SetBool("Open", true);
+		newResearch.SetActive(false);
 		
 		//update all bars depending on player level!
 		for (int i = 0; i < researchBars.Length; i++)
@@ -504,6 +532,61 @@ public class UIManager : MonoBehaviour
 	{
 		OpenShopUI();
 	}
+
+	//buy stuff with gems if there is no currency avail
+	public void BuyWithGems()
+	{
+		bool openShop=false;
+		if(NotEnoughID == "Warehouse")
+		{
+			//fill the backrooms
+			if(GlobalVar.Instance.RemoveGems(buyWithGemsCost))
+			{
+				//really fill it.
+				wareHouse.SendStuffToShop();
+			}
+			else openShop = true;
+		}
+
+		if(NotEnoughID.Contains("Research"))
+		{
+			if(GlobalVar.Instance.RemoveGems(buyWithGemsCost))
+			{
+				string Name = NotEnoughID.Split(':')[1];
+				CloseResearchUI();
+				for(int i = 0; i < researchBars.Length; i++)
+				{
+					if(researchBars[i].Name == Name)
+					{
+						researchBars[i].StartResearch();
+						break;
+					}
+				}
+				UpdateUI();
+			}
+			else openShop = true;
+		}
+
+		if(NotEnoughID.Contains("BuildBuilding"))
+		{
+			//build the building with gems
+			if(GlobalVar.Instance.RemoveGems(buyWithGemsCost))
+			{
+				string Name = NotEnoughID.Split(':')[1];
+				CloseBuildUI();
+				Buildings.Build(Name);
+
+				//for backrooms also increase so there will be 2 & 3 trucks respectively coming for each refill!
+				if (Name == "Backrooms 10") { wareHouse.TimesRefill = 2; shop.maxBackroomsAmount = 10; }
+				if (Name == "Backrooms 15") { wareHouse.TimesRefill = 3; shop.maxBackroomsAmount = 15; }
+				UpdateUI();
+			}
+			else openShop = true;
+		}
+
+		CloseNotEnoughUI();
+		if(openShop) OpenShopUI();
+	}
 	
 	public void GoToWarehouse()
 	{
@@ -535,7 +618,7 @@ public class UIManager : MonoBehaviour
 		}
 		else
 		{
-			OpenNotEnoughUI();
+			OpenNotEnoughUI("Warehouse", cost);
         }
 		
 		CloseBackroomsUI();
@@ -562,7 +645,7 @@ public class UIManager : MonoBehaviour
         }
 		else
 		{
-			OpenNotEnoughUI();
+			OpenNotEnoughUI("BuildBuilding:" + Name, cost);
 		}
 	}
 	

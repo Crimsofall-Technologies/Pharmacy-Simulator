@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
 	
 	private void Awake()
 	{
-		if(Application.platform == RuntimePlatform.Android)
+		if(Application.platform == RuntimePlatform.Android) {
 			timeScale = 1f;
+			NoGameLoad = false;
+		}
 		
 		Instance = this;
 		
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
 	
 	public bool DebugTime = false; //starts game in debug mode (adds 100,000 gems too)
 	public bool DebugGems = false;
+	public bool NoGameLoad;
 	
 	[Min(1f), Space] public float timeScale = 1f;
 	public int targetFPS = 45;
@@ -67,7 +70,8 @@ public class GameManager : MonoBehaviour
         ui.taskFill.maxValue = GlobalVar.Instance.nextXp;
 
         yield return new WaitForSecondsRealtime(0.5f);
-		LoadPlayer();
+		if(!NoGameLoad)
+			LoadPlayer();
     }
 
     private void OnApplicationQuit()
@@ -92,6 +96,15 @@ public class GameManager : MonoBehaviour
 		float xp = 300 * Mathf.Exp(levelExponent * Level);
 		GlobalVar.Instance.nextXp = Mathf.Round(xp / 100f) * 100.0f;
 		Invoke(nameof(NextLevelUp), 1f);
+
+		bool researchNew = false;
+		//show player can now build or research something new... maybe!
+		for(int i = 0; i < ResearchBars.Length; i++) {
+			if(ResearchBars[i].UnlockAtCurrentLevel()) researchNew = true;
+		}
+
+		ui.newResearch.SetActive(researchNew);
+		ui.newBuild.SetActive(creatableBuildings.CanBuildSomethingThisLevel());
 
 		//achievements!
 		if (Level == 10) 
@@ -157,7 +170,7 @@ public class GameManager : MonoBehaviour
         Timer oldTimer = TimerManager.GetTimerNamed(timerName);
         if (oldTimer != null)
         {
-            UIManager.Instance.OpenTimerBuyUI(oldTimer);
+            UIManager.Instance.OpenTimerBuyUI(oldTimer, 60); //constant 60 gems
             return;
         }
 

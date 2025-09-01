@@ -55,6 +55,10 @@ public class Shopper : MonoBehaviour
 	public void OnBubbleCreated(Bubble bub)
 	{
 		myBubble = bub;
+
+		//show on tutorial too (first time)
+		if(IsThief && TutorialManager.Instance.TutorialRunning && !TutorialManager.Instance.k)
+			TutorialManager.Instance.OnFirstThief();
 	}
 	
 	public void OnBubbleClicked()

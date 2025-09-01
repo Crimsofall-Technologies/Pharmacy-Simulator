@@ -108,16 +108,21 @@ public class ResearchBar : MonoBehaviour
 			Timer t = TimerManager.GetTimerNamed(Name);
 
 			if(t!=null)
-				UIManager.Instance.OpenTimerBuyUI(t);
+				UIManager.Instance.OpenTimerBuyUI(t, 250); //250 to complete up researches
 			return;
 		}
 
 		if (!GlobalVar.Instance.RemoveCurrency(Cost)) 
 		{
-			UIManager.Instance.OpenNotEnoughUI();
+			UIManager.Instance.OpenNotEnoughUI("Research:"+Name, Cost);
 			return;
 		}
 
+		StartResearch();
+	}
+
+	public void StartResearch()
+	{
 		//start researching
 		Timer.CustomData data = new Timer.CustomData(){ _string = Name };
 
@@ -168,4 +173,14 @@ public class ResearchBar : MonoBehaviour
 		GlobalVar.Instance.AddXP(GameManager.Instance.researchXP);
 		ResearchComplete = true;
     }
+
+	public bool UnlockAtCurrentLevel()
+	{
+		if(!ResearchComplete && !Researching && GameManager.Instance.Level == Level)
+		{
+			return true;
+		}
+
+		return false;
+	}
 }

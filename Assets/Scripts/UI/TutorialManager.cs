@@ -47,7 +47,7 @@ public class TutorialManager : MonoBehaviour
 	public CameraManager camManager;
 	
 	private bool showing;
-	public bool d, i, b;
+	public bool d, i, b, k;
 	private bool a,c,e,f, g, h, j;
 	private bool addTestTaskOnClose = false;
     private string lastMessage;
@@ -91,7 +91,7 @@ public class TutorialManager : MonoBehaviour
 		}
 
 		//shown all tutorials? complete it.
-		if(a&&b&&c&&d&&e&&f&&g&&h&&i&&j){
+		if(a&&b&&c&&d&&e&&f&&g&&h&&i&&j&&k) {
 			TutorialComplete();
 		}
 	}
@@ -135,7 +135,7 @@ public class TutorialManager : MonoBehaviour
 		{
 			ShowTutorMessage("The customer has got what they wanted now they will move to checkout section and pay you will have to click the icon above their head again.");
 			shop.groceriesAmount = 2; //one more use and it triggers next tutor stage!
-			shop.shopCrate.RemoveBoxes((shop.itemsMax - 3) * shop.itemsMax);
+			shop.shopCrate.RemoveBoxes((shop.itemsMax - 2) * GameManager.Instance.GetNumberOfBoxesPerShopper());
 			UIManager.Instance.UpdateUI();
 		}
 		c = true;
@@ -170,6 +170,13 @@ public class TutorialManager : MonoBehaviour
         }
         g = true;
     }
+
+	public void OnFirstThief()
+	{
+		if(TutorialRunning && !k && !NoTutor)
+			ShowTutorMessage("People with the *?* icon above them indicates they are thieves and steal money if you do not catch them quickly!");
+		k = true;
+	}
 
     public void OnLevelUp()
     {

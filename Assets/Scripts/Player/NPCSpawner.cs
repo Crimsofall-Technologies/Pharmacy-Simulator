@@ -44,21 +44,25 @@ public class NPCSpawner : MonoBehaviour
 		ShopperType[] shopperTypes = playerShop.GetShopperTypes(isThief);
 		SellableItem[] items = playerShop.GetRandomShopperItems(shopperTypes);
 
-		//no thieves during tutorial
+		//no thieves during tutorial - execpt when needed!
 		if (TutorialManager.Instance.TutorialRunning)
 		{
-			isThief = false;
+			if(TutorialManager.Instance.d && !TutorialManager.Instance.k)
+				isThief = true;
+			else 
+				isThief = false;
 
 			if (!TutorialManager.Instance.b) 
 			{
-                //first NPC should do a shopping of 50 or more!
-                items = new SellableItem[0];
-                List<SellableItem> i = new List<SellableItem>();
-                i.Add(playerShop.ThingsSold[0]);
-                i.Add(playerShop.ThingsSold[1]);
-                i.Add(playerShop.ThingsSold[2]);
-                i.Add(playerShop.ThingsSold[10]);
-                items = i.ToArray();
+                //first NPC must do a shopping of 50 or more!
+                SellableItem[] i = new SellableItem[]
+                {
+                    playerShop.ThingsSold[0],
+                    playerShop.ThingsSold[1],
+                    playerShop.ThingsSold[2],
+                    playerShop.ThingsSold[10]
+                };
+                items = i;
             }
 		}
 
@@ -66,8 +70,9 @@ public class NPCSpawner : MonoBehaviour
 		if(shopperTypes[0] != ShopperType.None && Shoppers.Count < maxNpcObjects) 
 		{
 			Shopper s = Instantiate(NPCPrefabs[Random.Range(0, NPCPrefabs.Length)], NPCSpawnArea[lastAreaIndex].position, Quaternion.identity).GetComponent<Shopper>();
-			s.Init(items, shopperTypes, playerShop, areaManager);
 			s.IsThief = isThief;
+			s.Init(items, shopperTypes, playerShop, areaManager);
+
 			Shoppers.Add(s);
 		}
 	}

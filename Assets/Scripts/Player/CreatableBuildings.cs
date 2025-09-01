@@ -147,6 +147,16 @@ public class CreatableBuildings : MonoBehaviour
 		return false;
 	}
 	
+	public bool CanBuildSomethingThisLevel()
+	{
+		for(int i = 0; i < Buildings.Length; i++) {
+			if(!Buildings[i].IsBuilt && !Buildings[i].IsBuilding && Buildings[i].Level == GameManager.Instance.Level)
+				return true;
+		}
+
+		return false;
+	}
+
 	public int GetBuildCost(string Name)
 	{
 		for (int i = 0; i < Buildings.Length; i++) {
@@ -226,6 +236,10 @@ public class CreatableBuildings : MonoBehaviour
 				{
 					string t = Buildings[i].normalText;
 					Buildings[i].text.text = t.Replace("Build", "Upgrade") + $" [LVL: {Buildings[i].UpgradesDone}]";
+
+					//increase cost by 100 per level upgrade needed!
+					Buildings[i].Cost += 100;
+					Buildings[i].costText.text = "Cost: " + Buildings[i].Cost;
 				}
 				else
 				{

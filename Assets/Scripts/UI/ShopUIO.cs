@@ -22,7 +22,8 @@ public class ShopUIO : MonoBehaviour
         }
         else 
         {
-            UIManager.Instance.OpenNotEnoughUI();
+            UIManager.Instance.OpenShopUI();
+            //UIManager.Instance.OpenNotEnoughUI();
         }
     }
 }
