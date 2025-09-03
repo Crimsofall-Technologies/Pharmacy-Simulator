@@ -88,15 +88,13 @@ public class Shopper : MonoBehaviour
 		if (leavingShop)
 			return;
 
-		if (IsThief) 
-		{
+		if (IsThief) {
 			OnCaughtStealing();
             return;
 		}
 
         //paid at cashier? make player move away and get destroyed!
-        if (waitingAtCashier)
-        {
+        if (waitingAtCashier) {
             DelayedPay();
             return;
         }

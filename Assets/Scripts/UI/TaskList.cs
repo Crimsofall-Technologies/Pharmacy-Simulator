@@ -139,6 +139,7 @@ public class TaskList : MonoBehaviour
             TaskGoldB = false;
             Destroy(currentTaskGO);
 
+            GlobalVar.Instance.AddGems(3);
             GenerateNewRandomTask();
             UIManager.Instance.UpdateUI();
         }
@@ -158,6 +159,7 @@ public class TaskList : MonoBehaviour
             TaskNpc = false;
             Destroy(currentTaskGO);
 
+            GlobalVar.Instance.AddGems(3);
             GenerateNewRandomTask();
             UIManager.Instance.UpdateUI();
         }
@@ -180,6 +182,7 @@ public class TaskList : MonoBehaviour
                 TaskShop = false;
                 Destroy(currentTaskGO);
 
+                GlobalVar.Instance.AddGems(3);
                 GenerateNewRandomTask();
                 UIManager.Instance.UpdateUI();
             }
@@ -200,6 +203,7 @@ public class TaskList : MonoBehaviour
             TaskThief = false;
             Destroy(currentTaskGO);
 
+            GlobalVar.Instance.AddGems(3);
             GenerateNewRandomTask();
             UIManager.Instance.UpdateUI();
         }

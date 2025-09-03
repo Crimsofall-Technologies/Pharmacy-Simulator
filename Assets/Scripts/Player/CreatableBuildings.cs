@@ -234,8 +234,10 @@ public class CreatableBuildings : MonoBehaviour
 
                 if (Buildings[i].UpgradesDone < Buildings[i].BuildingUpgrades.Length)
 				{
-					string t = Buildings[i].normalText;
-					Buildings[i].text.text = t.Replace("Build", "Upgrade") + $" [LVL: {Buildings[i].UpgradesDone}]";
+					if(Buildings[i].normalText == "Drinks Aisle")
+						Buildings[i].text.text = "Upgrade Drinks Dept." + $" [LVL: {Buildings[i].UpgradesDone}]";
+					if(Buildings[i].normalText == "Ice Cream Aisle")
+						Buildings[i].text.text = "Upgrade Ice Cream Dept." + $" [LVL: {Buildings[i].UpgradesDone}]";
 
 					//increase cost by 100 per level upgrade needed!
 					Buildings[i].Cost += 100;

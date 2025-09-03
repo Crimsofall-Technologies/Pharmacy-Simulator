@@ -100,7 +100,8 @@ public class GameManager : MonoBehaviour
 		bool researchNew = false;
 		//show player can now build or research something new... maybe!
 		for(int i = 0; i < ResearchBars.Length; i++) {
-			if(ResearchBars[i].UnlockAtCurrentLevel()) researchNew = true;
+			if(ResearchBars[i].UnlockAtCurrentLevel()) 
+				researchNew = true;
 		}
 
 		ui.newResearch.SetActive(researchNew);
