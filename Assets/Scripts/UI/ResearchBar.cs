@@ -108,7 +108,7 @@ public class ResearchBar : MonoBehaviour
 			Timer t = TimerManager.GetTimerNamed(Name);
 
 			if(t!=null)
-				UIManager.Instance.OpenTimerBuyUI(t, 250); //250 to complete up researches
+				UIManager.Instance.OpenTimerBuyUI(t);
 			return;
 		}
 
@@ -129,7 +129,7 @@ public class ResearchBar : MonoBehaviour
         //time will be 120s x 4 = 480s at level 2, 120 x 5 = 600s at level 3
         int time = GameManager.Instance.BaseTime;
         if (Level > 1)
-            time = GameManager.Instance.BaseTime * (Level + 2);
+            time = GameManager.Instance.BaseTime * (Level + 1);
 
 		if(GameManager.Instance.perksManager.DoubleSpeed)
 			time /= 2;

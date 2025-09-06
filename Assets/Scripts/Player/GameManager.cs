@@ -96,16 +96,7 @@ public class GameManager : MonoBehaviour
 		float xp = 300 * Mathf.Exp(levelExponent * Level);
 		GlobalVar.Instance.nextXp = Mathf.Round(xp / 100f) * 100.0f;
 		Invoke(nameof(NextLevelUp), 1f);
-
-		bool researchNew = false;
-		//show player can now build or research something new... maybe!
-		for(int i = 0; i < ResearchBars.Length; i++) {
-			if(ResearchBars[i].UnlockAtCurrentLevel()) 
-				researchNew = true;
-		}
-
-		ui.newResearch.SetActive(researchNew);
-		ui.newBuild.SetActive(creatableBuildings.CanBuildSomethingThisLevel());
+		TryEnableExcalmPoint();
 
 		//achievements!
 		if (Level == 10) 
@@ -128,6 +119,20 @@ public class GameManager : MonoBehaviour
 		
 		ui.taskFill.minValue = GlobalVar.Instance.currentXP;
 		ui.taskFill.maxValue = GlobalVar.Instance.nextXp;
+	}
+
+	public void TryEnableExcalmPoint()
+	{
+		bool researchNew = false;
+		//show player can now build or research something new... maybe!
+		for(int i = 0; i < ResearchBars.Length; i++) {
+			if(ResearchBars[i].UnlockAtCurrentLevel()) 
+				researchNew = true;
+		}
+
+		//enable excalmation points on buttons showing they can research/build something
+		ui.newResearch.SetActive(researchNew);
+		ui.newBuild.SetActive(creatableBuildings.CanBuildSomethingThisLevel());
 	}
 	
 	public void Refill(int index)
@@ -171,7 +176,7 @@ public class GameManager : MonoBehaviour
         Timer oldTimer = TimerManager.GetTimerNamed(timerName);
         if (oldTimer != null)
         {
-            UIManager.Instance.OpenTimerBuyUI(oldTimer, 60); //constant 60 gems
+            UIManager.Instance.OpenTimerBuyUI(oldTimer);
             return;
         }
 

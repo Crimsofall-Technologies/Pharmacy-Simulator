@@ -282,8 +282,6 @@ public class UIManager : MonoBehaviour
 		Time.timeScale = 0f;
 		buildGO.SetActive(true);
 		buildAnimator.SetBool("Open", true);
-
-		newBuild.SetActive(false);
 		shop.creatableBuilding.UpdateUI();
 	}
 	
@@ -291,20 +289,16 @@ public class UIManager : MonoBehaviour
 	{
 		buildAnimator.SetBool("Open", false);
 		StartCoroutine(DelayedCloseUI(buildGO));
+		GameManager.Instance.TryEnableExcalmPoint();
 	}
 
 	private Timer timer;
-	private int constantGemsAmount;
-	public void OpenTimerBuyUI(Timer _timer, int _constantGemsAmount = 0) 
+	public void OpenTimerBuyUI(Timer _timer) 
 	{
 		Time.timeScale = 0f; //pause.
 		timer = _timer;
-		constantGemsAmount = _constantGemsAmount;
 
-		if(constantGemsAmount <= 0)
-			timerBuyText.text = "Cost: "+Mathf.RoundToInt(timer.remainingTime * 1.5f) + "";
-		else
-			timerBuyText.text = "Cost: "+constantGemsAmount + "";
+		timerBuyText.text = "Cost: "+Mathf.RoundToInt(timer.remainingTime * 1.25f) + "";
 		timerBuyUI.SetActive(true);
 		timerBuyAnimator.SetBool("Open", true);
 	}
@@ -312,10 +306,7 @@ public class UIManager : MonoBehaviour
 	public void BuyAndCompleteTimer()
 	{
 		int cost;
-		if(constantGemsAmount <= 0)
-			cost = Mathf.RoundToInt(timer.remainingTime * 1.5f);
-		else
-			cost = constantGemsAmount;
+		cost = Mathf.RoundToInt(timer.remainingTime * 1.5f);
 		if (GlobalVar.Instance.RemoveGems(cost))
 		{
 			timer.OverrideComplete();
@@ -478,7 +469,6 @@ public class UIManager : MonoBehaviour
 		Time.timeScale = 0f;
 		researchUI.SetActive(true);
 		researchUIAnimator.SetBool("Open", true);
-		newResearch.SetActive(false);
 		
 		//update all bars depending on player level!
 		for (int i = 0; i < researchBars.Length; i++)
@@ -491,6 +481,7 @@ public class UIManager : MonoBehaviour
 	{
 		researchUIAnimator.SetBool("Open", false);
 		StartCoroutine(DelayedCloseUI(researchUI));
+		GameManager.Instance.TryEnableExcalmPoint();
 	}
 
 	public void OpenShoppingList(Shopper shopper) 
