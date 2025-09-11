@@ -126,7 +126,7 @@ public class ResearchBar : MonoBehaviour
 		//start researching
 		Timer.CustomData data = new Timer.CustomData(){ _string = Name };
 
-        //time will be 120s x 4 = 480s at level 2, 120 x 5 = 600s at level 3
+        //time will be 120s x 3 = 360s at level 2, 120 x 4 = 480s at level 3
         int time = GameManager.Instance.BaseTime;
         if (Level > 1)
             time = GameManager.Instance.BaseTime * (Level + 1);

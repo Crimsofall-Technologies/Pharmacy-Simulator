@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 
 [DefaultExecutionOrder(0)]
 public class TutorialManager : MonoBehaviour
@@ -12,10 +11,9 @@ public class TutorialManager : MonoBehaviour
 	
 	private void Awake()
 	{
-		if (!Application.isEditor)
+		if (!Application.isEditor) //always override edit-time settings in build!
 			NoTutor = false;
 
-		TutorialRunning = true;
 		Instance = this;
 
 		//disabled tutorial for editor session? debug.
@@ -29,8 +27,6 @@ public class TutorialManager : MonoBehaviour
 		}
 
 		NPCMax = GameManager.Instance.npcSpawner.maxNpcObjects;
-		//GameManager.Instance.npcSpawner.maxNpcObjects = 2; //just 2 for now!
-        IsTutorialComplete = PlayerPrefs.GetInt("seen_tutor_before", 0) == 1;
 	}
 
 	#endregion
@@ -63,6 +59,14 @@ public class TutorialManager : MonoBehaviour
 		animator.SetBool("Open", true);
 		lastMessage = message;
 		StartCoroutine(AddLetters(message));
+	}
+
+	public void StartTutorial(bool complete)
+	{
+		IsTutorialComplete = complete;
+		TutorialRunning = complete;
+		if(!IsTutorialComplete)
+			OnGameStart();
 	}
 	
 	public void Close()
@@ -237,7 +241,6 @@ public class TutorialManager : MonoBehaviour
 
 		IsTutorialComplete = true;
 		TutorialRunning = false;
-		PlayerPrefs.SetInt("seen_tutor_before", 1);
 	}
 	
 	#endregion

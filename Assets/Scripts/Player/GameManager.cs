@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
 	private IEnumerator Start()
 	{
 		yield return new WaitForSecondsRealtime(.25f);
-		TutorialManager.Instance.OnGameStart();
 
         ui.taskFill.minValue = GlobalVar.Instance.currentXP;
         ui.taskFill.maxValue = GlobalVar.Instance.nextXp;
@@ -72,6 +71,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
 		if(!NoGameLoad)
 			LoadPlayer();
+		TryEnableExcalmPoint();
     }
 
     private void OnApplicationQuit()
@@ -270,6 +270,7 @@ public class GameManager : MonoBehaviour
 			Level = Level,
 			Cash = GlobalVar.Instance.Currency,
 			Gems = GlobalVar.Instance.Gems,
+			TutorComplete = TutorialManager.Instance.IsTutorialComplete,
 		};
 
 		data.AchivementsCollected = new bool[ui.achievementManager.achievementUIOS.Length];
@@ -319,11 +320,12 @@ public class GameManager : MonoBehaviour
 		shop.pharmacyAmount= cachedPlayerData.remainPharmacy;
 		shop.drinksAmount= cachedPlayerData.remainVaccine;
 
+		TutorialManager.Instance.StartTutorial(cachedPlayerData.TutorComplete);
+
 		GlobalVar.Instance.SetCurrency(cachedPlayerData.Cash);
 		GlobalVar.Instance.SetGems(cachedPlayerData.Gems);
 
 		shop.shopCrate.RemoveBoxes((shop.itemsMax - cachedPlayerData.remainGroceries) * GetNumberOfBoxesPerShopper());
-
 		perksManager.OnLoad(cachedPlayerData);
 
 		GlobalVar.Instance.nextXp = cachedPlayerData.maxXp;

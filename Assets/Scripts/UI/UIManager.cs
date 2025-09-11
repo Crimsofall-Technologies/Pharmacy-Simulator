@@ -63,8 +63,6 @@ public class UIManager : MonoBehaviour
 		drinksText.text = "";
 
 		researchBars = researchUI.GetComponentsInChildren<ResearchBar>(true);
-		newResearch.SetActive(false);
-		newBuild.SetActive(false);
 
 		UpdateUI();
 		StartCoroutine(UpdateBarsSmoothly());
@@ -306,7 +304,7 @@ public class UIManager : MonoBehaviour
 	public void BuyAndCompleteTimer()
 	{
 		int cost;
-		cost = Mathf.RoundToInt(timer.remainingTime * 1.5f);
+		cost = Mathf.RoundToInt(timer.remainingTime * CurrencyManager.GemsPerSecond);
 		if (GlobalVar.Instance.RemoveGems(cost))
 		{
 			timer.OverrideComplete();
@@ -451,7 +449,8 @@ public class UIManager : MonoBehaviour
 		//pre-calculate cost in gems!
 		if(originalCost > 0)
 		{
-			buyWithGemsCost = Mathf.RoundToInt(originalCost * 0.75f);
+			//cost is 1 gem per 3 in-game currency!
+			buyWithGemsCost = Mathf.RoundToInt(originalCost / CurrencyManager.CurrencyPerGems);
 			buyWithGemsText.text = "Buy with " + buyWithGemsCost + " Gems!";
 		}
     }

@@ -23,4 +23,6 @@ public class PlayerData
     //Achivements
     public int[] AchivementsProgress;
     public bool[] AchivementsCollected;
+
+    public bool TutorComplete;
 }
